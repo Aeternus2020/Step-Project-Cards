@@ -1,33 +1,85 @@
-.container-4 {
-    overflow: hidden;
+/* .container-4 { */
+    /* overflow: hidden;
     width: 780px;
     vertical-align: middle;
     white-space: nowrap;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
-    border-radius: 100px;
+    border-radius: 100px; */
+/* } */
+
+.field-search{
+    display: flex;
+    justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      
+    
 }
 
-#search {
-    width: 780px;
+
+#search-input {
+    
+    width: 40%;
     height: 50px;
     background: #323232;
-    border: none;
-    font-size: 10pt;
-    float: left;
-    color: #fff;
-    padding-left: 15px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    border-radius: 100px;
+    border: 1px solid #0D7377;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #B6EADA;
+    border-radius: 50px ;
+    padding-left: 25px;
+   
+   
 }
 
-#search::-webkit-input-placeholder {
+.select-inp{
+    
+    width: 20%;
+    height: 50px;
+    background: #323232;
+    border: 1px solid #0D7377;
+    font-size: 20px;
+    font-weight: 400;
+        line-height: 20px;
+        color: #B6EADA;
+    border-radius: 50px;
+    padding-left: 25px;
+    
+}
+.search__btn{
+
+    width: 100px;
+    height: 50px;
+    background: #0D7377;
+    border: 1px solid #0D7377;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    border-radius: 50px;
+    color: #B6EADA;
+    
+}
+
+.dpopdown-item{
+    color: #b6eada;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 20px;
+}
+
+
+
+
+
+
+/* #search::-webkit-input-placeholder {
     color: rgba(182, 234, 218, 0.3);
 
-}
+} */
 
-.icon {
+/* .icon {
     -webkit-border-top-right-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;
     -moz-border-radius-topright: 5px;
@@ -47,16 +99,156 @@
     -ms-transition: all .55s ease;
     -o-transition: all .55s ease;
     transition: all .55s ease;
-}
+} */
 
-.container-4:hover button.icon,
+/* .container-4:hover button.icon,
 .container-4:active button.icon,
 .container-4:focus button.icon {
     outline: none;
     opacity: 1;
     margin-left: -50px;
+} */
+
+/* .icon:hover {
+    background: #B6EADA;
+} */
+
+/* ================================== */
+/* dropdown style */ 
+
+ .field-search{
+    position: relative;
 }
 
-.icon:hover {
-    background: #B6EADA;
+#priority{
+    position: relative;
+ 
+    display: block;
+    
+    outline: none;
+    cursor: pointer;
+    z-index: 1;
+} 
+
+
+
+
+
+ #priority:focus, #priority:active {
+outline: none;
+box-shadow: 0 0 0 2px rgba(0.7, 234, 218, 0.4);;
+} 
+
+
+
+.dropdown__list-priority{
+    /* display: none; */
+
+    position: absolute;
+  
+    left: 0;
+    top: 30px; 
+
+   
+    padding: 0;
+   list-style-type: none; 
+
+   
+   overflow: hidden;
+
+   border-radius: 1px solid #0d7377;
+   width: 20%;
+   
 }
+
+ .dropdown__list-priority--visible{
+    display: block;
+}
+
+
+
+#status {
+    position: relative;
+
+    display: block;
+
+    outline: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+
+
+
+#priority:focus,
+#priority:active {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0.7, 234, 218, 0.4);
+    
+}
+
+
+
+.dropdown__list-status {
+    /* display: none; */
+
+    position: absolute;
+
+    left: 24.1%;
+    top: 30px;
+
+
+    padding: 0;
+    list-style-type: none;
+
+
+    overflow: hidden;
+
+    border-radius: 1px solid #0d7377;
+    width: 20%;
+    
+}
+
+.dropdown__list-status--visible {
+    display: block;
+}
+
+#status:focus,
+#status:active {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0.7, 234, 218, 0.4);
+    
+}
+
+
+.dpopdown-item{
+    margin: 0;
+    padding: 0;
+    border: 1px solid #0d7377;
+    border-bottom: 0;
+    padding: 15px 25px;
+    cursor: pointer; 
+    background: #323232;
+
+ }
+.dpopdown-item:first-child{ 
+  
+     /* border-top: none; */
+    padding-top: 30px;
+    
+} 
+
+.dpopdown-item:last-child {
+    /* padding-bottom: 15px; */
+    border-radius: 0 0 25px 25px;
+    border-bottom: 1px solid #0d7377;
+}
+
+.dpopdown-item:hover{
+    background: #0d7377;
+    color: #323232;
+}
+
+
+
