@@ -1,2 +1,6 @@
-//import * as functionDropDown from "./modules/dropDowm.js"
-//functionDropDown()
+// import * as functionDropDown from "./modules/dropDown.js"
+// functionDropDown()
+
+import * as functionSearch from "./modules/search.js";
+functionSearch();
+

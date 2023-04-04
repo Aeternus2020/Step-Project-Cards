@@ -1,7 +1,34 @@
 <div class="container filter-container">
     <div class="container-4">
-        <input type="search" id="search" placeholder="Search..." />
-        <button class="icon"><img src="@img/Search.svg" alt=""></button>
+        <div class="field-search">
+            <div class="dropdown">
+            <input class="select-inp" type="text" id="priority" placeholder="Priority..." />
+            <ul class="dropdown__list-priority">
+                <li class="dpopdown-item" data-value="High">High</li>
+                <li class="dpopdown-item" data-value="Normal">Normal</li>
+                <li class="dpopdown-item" data-value="Low">Low</li>
+            </ul>
+            </div>
+            <div class="dropdown">
+            <input class="select-inp" type="text" id="status" placeholder="Status..." />
+            <ul class="dropdown__list-status">
+                <li class="dpopdown-item" data-value="Open">Open</li>
+                <li class="dpopdown-item" data-value="Done">Done</li>
+                
+            </ul>
+            </div>
+            <div class="dropdown-search">
+            <input type="search" id="search-input" placeholder="Search...">
+            </div>
+            
+            <button class="search__btn">Search</button>
+           
+        </div>
+        <div id="cards">
+        
+        </div>
+    
+        
     </div>
 
 </div>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.min.css?_v=20230404112641">
+    <link rel="stylesheet" href="./css/header.min.css?_v=20230404112641">
+    <link rel="stylesheet" href="./css/globalStyles.min.css?_v=20230404112641">
+    <link rel="stylesheet" href="./css/filter.min.css?_v=20230404112641">
+    <link rel="stylesheet" href="./css/dropDown.min.css?_v=20230404112641">
+    <title>HealthSphere</title>
+
+</head>
+
+<body>
+    <header>
+    <div class="container header-container">
+        <a href=""><img src="img/Subtract.svg" alt="">HealthSphere</a>
+        <div class="header-btn-box">
+            <span class='pulse-button'>Create</span>
+            <input type="button" value="Login" class="login" />
+        </div>
+    </div>
+</header>
+    <div class="container filter-container">
+    <div class="container-4">
+        <div class="field-search">
+            <div class="dropdown">
+            <input class="select-inp" type="text" id="priority" placeholder="Priority..." />
+            <ul class="dropdown__list-priority">
+                <li class="dpopdown-item" data-value="High">High</li>
+                <li class="dpopdown-item" data-value="Normal">Normal</li>
+                <li class="dpopdown-item" data-value="Low">Low</li>
+            </ul>
+            </div>
+            <div class="dropdown">
+            <input class="select-inp" type="text" id="status" placeholder="Status..." />
+            <ul class="dropdown__list-status">
+                <li class="dpopdown-item" data-value="Open">Open</li>
+                <li class="dpopdown-item" data-value="Done">Done</li>
+                
+            </ul>
+            </div>
+            <div class="dropdown-search">
+            <input type="search" id="search-input" placeholder="Search...">
+            </div>
+            
+            <button class="search__btn">Search</button>
+           
+        </div>
+        <div id="cards">
+        
+        </div>
+    
+        
+    </div>
+
+</div>
+    <div class="container cards-holder">
+
+</div>
+
+
+        <script src="js/app.js?_v=20230404112641"></script>
+</body>
+
+</html>
+<link rel="stylesheet" href="./css/globalStyles.min.css?_v=20230404112641">
