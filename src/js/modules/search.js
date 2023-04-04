@@ -1,3 +1,6 @@
+
+alert('hello')
+
 fetch("https://ajax.test-danit.com/api/v2/cards", {
   method: "GET",
   headers: {
@@ -20,11 +23,14 @@ console.log(cardsData);
 
 
 //Проходимся по обох дропдаунах і вибираєм значення, або з одного
-
-document.querySelectorAll(".dropdown").forEach(function (dropdownWrapper) {
+let dropDown = document.querySelectorAll(".dropdown");
+// console.log(dropDown);
+dropDown.forEach(function (dropdownWrapper) {
+  console.log(dropdownWrapper);
   const dpopList = dropdownWrapper.querySelector(".list");
   const dropItems = dpopList.querySelectorAll(".dpopdown-item");
   const dropInput = dropdownWrapper.querySelector(".select-inp");
+  // console.log(dropInput);
   dropInput.addEventListener("click", showList);
 
   // клик по кнопке
