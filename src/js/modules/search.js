@@ -1,5 +1,5 @@
 
-alert('hello')
+
 
 fetch("https://ajax.test-danit.com/api/v2/cards", {
   method: "GET",
@@ -24,13 +24,13 @@ console.log(cardsData);
 
 //Проходимся по обох дропдаунах і вибираєм значення, або з одного
 let dropDown = document.querySelectorAll(".dropdown");
-// console.log(dropDown);
+
 dropDown.forEach(function (dropdownWrapper) {
-  console.log(dropdownWrapper);
+
   const dpopList = dropdownWrapper.querySelector(".list");
   const dropItems = dpopList.querySelectorAll(".dpopdown-item");
   const dropInput = dropdownWrapper.querySelector(".select-inp");
-  // console.log(dropInput);
+  
   dropInput.addEventListener("click", showList);
 
   // клик по кнопке
@@ -103,13 +103,14 @@ function filterSearch() {
   const rgo = new RegExp(inpOpen.value, "i");
   cardsData.forEach((card) => {
     if (
-      rgx.test(card.title && card.description) &&
+      (rgx.test(card.title) ||
+      rgx.test(card.description)) &&
       rgp.test(card.priority) &&
       rgo.test(card.status)
     ) {
       ShowCards(card);
       count++;
-      //   console.log(inpHigh.value, inpOpen.value);
+     
     }
   });
   if (count === 0) {
@@ -119,3 +120,5 @@ function filterSearch() {
     );
   }
 }
+
+export default Search;
