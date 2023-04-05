@@ -75,96 +75,49 @@ async function render() {
         }
     });
 
-    //let btnsShowMore = document.querySelectorAll(".btn-showMore");
-    //let btnShowLess = document.querySelectorAll(".btn-showLess")
+    let btnsShowMore = document.querySelectorAll(".btn-showMore");
+    let btnShowLess = document.querySelectorAll(".btn-showLess")
 
-    //btnShowLess.forEach(function (btnShowLess) {
-    //    btnShowLess.addEventListener("click", function () {
+    btnShowLess.forEach(function (btnShowLess) {
+        btnShowLess.addEventListener("click", function () {
 
-    //        let btnsParent = this.parentNode;
-    //        let mainParent = btnsParent.parentNode
-    //        console.log(mainParent);
+            let btnsParent = this.parentNode;
+            let btnMore = btnsParent.children[0]
+            let mainParent = btnsParent.parentNode
 
-    //        let hiddenPElems = mainParent.querySelectorAll("p.hidden");
-    //        console.log(hiddenPElems);
-    //        hiddenPElems.forEach(function (hiddenPElem) {
-    //            hiddenPElem.classList.toggle("card-p-display-visible");
-    //        });
+            let hiddenPElems = mainParent.querySelectorAll("p.hidden");
+            hiddenPElems.forEach(function (hiddenPElem) {
+                hiddenPElem.classList.toggle("card-p-display-visible");
+            });
 
-    //        let btnsShowLessEdit = mainParent.querySelectorAll(".btn-showLess, .btn-edit");
-    //        btnsShowLessEdit.forEach(function (btnShowLessEdit) {
-    //            btnShowLessEdit.classList.toggle("hidden");
-    //        });
-    //        btnsShowMore.forEach(e => e.classList.remove("hidden"))
-    //        this.classList.add("hidden");
-    //        console.log("less");
+            let btnsShowLessEdit = mainParent.querySelectorAll(".btn-showLess, .btn-edit");
+            btnsShowLessEdit.forEach(function (btnShowLessEdit) {
+                btnShowLessEdit.classList.toggle("hidden");
+            });
 
-    //    });
-    //});
-
-    //btnsShowMore.forEach(function (btnShowMore) {
-    //    btnShowMore.addEventListener("click", function () {
-
-    //        let btnsParent = this.parentNode;
-    //        let mainParent = btnsParent.parentNode
-    //        console.log(mainParent);
-
-    //        let hiddenPElems = mainParent.querySelectorAll("p.hidden");
-    //        console.log(hiddenPElems);
-    //        hiddenPElems.forEach(function (hiddenPElem) {
-    //            hiddenPElem.classList.toggle("card-p-display-visible");
-    //        });
-
-    //        let btnsShowLessEdit = mainParent.querySelectorAll(".btn-showLess, .btn-edit");
-    //        btnsShowLessEdit.forEach(function (btnShowLessEdit) {
-    //            btnShowLessEdit.classList.toggle("hidden");
-    //        });
-    //        this.classList.add("hidden");
-    //        console.log("more");
-    //    });
-    //});
-
-    const btnsShowMore = document.querySelectorAll(".btn-showMore");
-    const btnShowLess = document.querySelectorAll(".btn-showLess");
-
-    for (const btn of btnShowLess) {
-        const btnsParent = btn.parentNode;
-        const mainParent = btnsParent.parentNode;
-        const hiddenPElems = mainParent.querySelectorAll("p.hidden");
-        const btnsShowLessEdit = mainParent.querySelectorAll(".btn-showLess, .btn-edit");
-
-        btn.addEventListener("click", () => {
-            for (const elem of hiddenPElems) {
-                elem.classList.toggle("card-p-display-visible");
-            }
-
-            for (const btnEdit of btnsShowLessEdit) {
-                btnEdit.classList.toggle("hidden");
-            }
-
-            btnsShowMore.forEach(e => e.classList.remove("hidden"));
-            btn.classList.add("hidden");
+            this.classList.add("hidden");
+            btnMore.classList.remove("hidden")
         });
-    }
+    });
 
-    for (const btn of btnsShowMore) {
-        const btnsParent = btn.parentNode;
-        const mainParent = btnsParent.parentNode;
-        const hiddenPElems = mainParent.querySelectorAll("p.hidden");
-        const btnsShowLessEdit = mainParent.querySelectorAll(".btn-showLess, .btn-edit");
+    btnsShowMore.forEach(function (btnShowMore) {
+        btnShowMore.addEventListener("click", function () {
 
-        btn.addEventListener("click", () => {
-            for (const elem of hiddenPElems) {
-                elem.classList.toggle("card-p-display-visible");
-            }
+            let btnsParent = this.parentNode;
+            let mainParent = btnsParent.parentNode
 
-            for (const btnEdit of btnsShowLessEdit) {
-                btnEdit.classList.toggle("hidden");
-            }
+            let hiddenPElems = mainParent.querySelectorAll("p.hidden");
+            hiddenPElems.forEach(function (hiddenPElem) {
+                hiddenPElem.classList.toggle("card-p-display-visible");
+            });
 
-            btn.classList.add("hidden");
+            let btnsShowLessEdit = mainParent.querySelectorAll(".btn-showLess, .btn-edit");
+            btnsShowLessEdit.forEach(function (btnShowLessEdit) {
+                btnShowLessEdit.classList.toggle("hidden");
+            });
+            this.classList.add("hidden");
         });
-    }
+    });
 
 
 }

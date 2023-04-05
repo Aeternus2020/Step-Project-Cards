@@ -25,12 +25,12 @@ let cardsData = JSON.parse(localStorage.getItem("cardsData"));
 let dropDown = document.querySelectorAll(".dropdown");
 // console.log(dropDown);
 dropDown.forEach(function (dropdownWrapper) {
-  console.log(dropdownWrapper);
-  const dpopList = dropdownWrapper.querySelector(".list");
-  const dropItems = dpopList.querySelectorAll(".dpopdown-item");
-  const dropInput = dropdownWrapper.querySelector(".select-inp");
-  // console.log(dropInput);
-  dropInput.addEventListener("click", showList);
+    console.log(dropdownWrapper);
+    const dpopList = dropdownWrapper.querySelector(".list");
+    const dropItems = dpopList.querySelectorAll(".dpopdown-item");
+    const dropInput = dropdownWrapper.querySelector(".select-inp");
+    // console.log(dropInput);
+    dropInput.addEventListener("click", showList);
 
     // клик по кнопке
     function showList() {
@@ -95,28 +95,28 @@ searchBtn.onclick = () => {
 };
 
 function filterSearch() {
-  cards.innerHTML = "";
-  let count = 0;
-  const rgx = new RegExp(searchValue.replace(/[,.\s]+/g, "\\W*"), "i");
-  const rgp = new RegExp(inpHigh.value, "i");
-  const rgo = new RegExp(inpOpen.value, "i");
-  cardsData.forEach((card) => {
-    if (
-      (rgx.test(card.title) || rgx.test(card.description)) &&
-      rgp.test(card.priority) &&
-      rgo.test(card.status)
-    ) {
-      ShowCards(card);
-      count++;
-      //   console.log(inpHigh.value, inpOpen.value);
+    cards.innerHTML = "";
+    let count = 0;
+    const rgx = new RegExp(searchValue.replace(/[,.\s]+/g, "\\W*"), "i");
+    const rgp = new RegExp(inpHigh.value, "i");
+    const rgo = new RegExp(inpOpen.value, "i");
+    cardsData.forEach((card) => {
+        if (
+            (rgx.test(card.title) || rgx.test(card.description)) &&
+            rgp.test(card.priority) &&
+            rgo.test(card.status)
+        ) {
+            ShowCards(card);
+            count++;
+            //   console.log(inpHigh.value, inpOpen.value);
+        }
+    });
+    if (count === 0) {
+        cards.insertAdjacentHTML(
+            "afterbegin",
+            '<h2 class="search-result">No results</h2>'
+        );
     }
-  });
-  if (count === 0) {
-    cards.insertAdjacentHTML(
-      "afterbegin",
-      '<h2 class="search-result">No results</h2>'
-    );
-  }
 }
 
 export default Search;
