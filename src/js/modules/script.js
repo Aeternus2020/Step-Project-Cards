@@ -40,7 +40,7 @@ function post(doctor) {
         .then(response => response.json())
         .then(response => console.log(response))
 }
-//post("caiologist")
+//post("dentist")
 
 
 
@@ -52,12 +52,6 @@ import { visitDentist } from "./dentist.js"
 
 
 
-//fetch(`https://ajax.test-danit.com/api/v2/cards/158407`, {
-//    method: 'DELETE',
-//    headers: {
-//        'Authorization': `Bearer ${token}`
-//    },
-//})
 
 async function render() {
     let users = await getData('22272608-2570-4723-a573-9e9451138488')
@@ -71,7 +65,12 @@ async function render() {
             let test = new visitTherapist(user).addTherapistCard()
         } else {
             console.log(`Карточка з цим айді:"${user.id}", не підходить під категорії лікарів`);
-
+            //fetch(`https://ajax.test-danit.com/api/v2/cards/${user.id}`, {
+            //    method: 'DELETE',
+            //    headers: {
+            //        'Authorization': `Bearer ${token}`
+            //    },
+            //})
         }
     });
 

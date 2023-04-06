@@ -1,6 +1,11 @@
-// import * as functionDropDown from "./modules/dropDown.js"
-// functionDropDown()
 
-import functionSearch from "./modules/search.js";
+
 // functionSearch();
 
+
+import { render } from "./modules/script.js"
+
+
+import * as login from "./modules/_login.js"
+
+import * as functionSearch from "./modules/search.js";
