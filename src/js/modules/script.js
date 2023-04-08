@@ -12,11 +12,7 @@ async function getData(token) {
 }
 console.log(getData("22272608-2570-4723-a573-9e9451138488"));
 
-let token = "22272608-2570-4723-a573-9e9451138488"
-
-
-
-
+export let token = "22272608-2570-4723-a573-9e9451138488"
 
 function post(doctor) {
     fetch("https://ajax.test-danit.com/api/v2/cards", {
@@ -40,18 +36,11 @@ function post(doctor) {
         .then(response => response.json())
         .then(response => console.log(response))
 }
-//post("dentist")
-
-
-
-
+// post("therapist")
 
 import { visitCardiologist } from "./cardiolog.js"
 import { visitTherapist } from "./therapist.js"
 import { visitDentist } from "./dentist.js"
-
-
-
 
 async function render() {
     let users = await getData('22272608-2570-4723-a573-9e9451138488')

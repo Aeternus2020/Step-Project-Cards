@@ -43,7 +43,8 @@
     left: 350px;
 }
 
-.card-container-p p:nth-of-type(n+3) {
+.card-container-p p:nth-of-type(n+3),
+.card {
     border: 1px solid #0D7377;
     border-radius: 100px;
     width: 900px;
@@ -53,6 +54,12 @@
     font-weight: 400;
     font-size: 18px;
     color: #B6EADA
+}
+
+.card {
+    font-size: 1.8rem;
+    text-align: center;
+    border: none;
 }
 
 .card-container-p p:nth-of-type(n+3)>img {
@@ -88,5 +95,4 @@
     height: 33.94px;
     background: #323232;
     border-radius: 100px;
-
 }
