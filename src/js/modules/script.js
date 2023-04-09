@@ -1,45 +1,45 @@
 
 
-async function getData(token) {
-    return await fetch("https://ajax.test-danit.com/api/v2/cards/", {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        }
-    })
-        .then(response => response.json())
-}
-console.log(getData("22272608-2570-4723-a573-9e9451138488"));
+// async function getData(token) {
+//     return await fetch("https://ajax.test-danit.com/api/v2/cards/", {
+//         method: 'GET',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': `Bearer ${token}`
+//         }
+//     })
+//         .then(response => response.json())
+// }
+// console.log(getData("22272608-2570-4723-a573-9e9451138488"));
 
-let token = "22272608-2570-4723-a573-9e9451138488"
-
-
+// let token = "22272608-2570-4723-a573-9e9451138488"
 
 
 
-function post(doctor) {
-    fetch("https://ajax.test-danit.com/api/v2/cards", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-            "name": "Daniel",
-            "doctor": `${doctor}`,
-            "title": "Почки Нету",
-            "description": "Вернуть Почку Хочу",
-            "urgency": "Срочно",
-            "age": "21",
-            "index": "3425",
-            "disease": "Не вистачає клапана",
-            "pressure": "120.70",
-        })
-    })
-        .then(response => response.json())
-        .then(response => console.log(response))
-}
+
+
+// function post(doctor) {
+//     fetch("https://ajax.test-danit.com/api/v2/cards", {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': `Bearer ${token}`
+//         },
+//         body: JSON.stringify({
+//             "name": "Daniel",
+//             "doctor": `${doctor}`,
+//             "title": "Почки Нету",
+//             "description": "Вернуть Почку Хочу",
+//             "urgency": "Срочно",
+//             "age": "21",
+//             "index": "3425",
+//             "disease": "Не вистачає клапана",
+//             "pressure": "120.70",
+//         })
+//     })
+//         .then(response => response.json())
+//         .then(response => console.log(response))
+// }
 //post("dentist")
 
 
@@ -53,16 +53,21 @@ import { visitDentist } from "./dentist.js"
 
 
 
-async function render() {
-    let users = await getData('22272608-2570-4723-a573-9e9451138488')
-    users.forEach((user) => {
-        if (user.doctor == 'dentist') {
-            let test = new visitDentist(user).addDentistCard()
+
+export function render(arrCardData) {
+    
+    // let users = await getData("22272608 - 2570 - 4723 - a573 - 9e9451138488");
+    arrCardData.forEach((user) => {
+        if (user.doctor == 'Dentist') {
+            let test = new visitDentist(user).addDentistCard();
+            //return user;
         }
-        else if (user.doctor == 'cardiologist') {
-            let test = new visitCardiologist(user).addCardiologistCard()
-        } else if (user.doctor == 'therapist') {
-            let test = new visitTherapist(user).addTherapistCard()
+        else if (user.doctor == 'Cardiologist') {
+            let test = new visitCardiologist(user).addCardiologistCard();
+           // return user;
+        } else if (user.doctor == 'Therapist') {
+            let test = new visitTherapist(user).addTherapistCard();
+          //  return user;
         } else {
             console.log(`Карточка з цим айді:"${user.id}", не підходить під категорії лікарів`);
             //fetch(`https://ajax.test-danit.com/api/v2/cards/${user.id}`, {
@@ -121,6 +126,6 @@ async function render() {
 
 }
 
-render()
+// render()
 
 

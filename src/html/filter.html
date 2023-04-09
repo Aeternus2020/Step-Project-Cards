@@ -1,29 +1,34 @@
-<div class="container filter-container">
-    <div class="container-4">
-        <div class="field-search">
-            <div class="dropdown">
-            <input class="select-inp" type="text" id="priority" placeholder="Priority..." />
-            <ul class="dropdown__list-priority list">
-                <li class="dpopdown-item" data-value="High">High</li>
-                <li class="dpopdown-item" data-value="Normal">Normal</li>
-                <li class="dpopdown-item" data-value="Low">Low</li>
-            </ul>
-            </div>
-            <div class="dropdown">
-            <input class="select-inp" type="text" id="status" placeholder="Status..." />
-            <ul class="dropdown__list-status list">
-                <li class="dpopdown-item" data-value="Open">Open</li>
-                <li class="dpopdown-item" data-value="Done">Done</li>
-                
-            </ul>
-            </div>
+     <div>
+    
+        <form class="field-search">
             <div class="dropdown-search">
-            <input type="search" id="search-input" placeholder="Search...">
+                <input class="inp-clear" type="search" id="search-input" placeholder="Search..." autocomplete="off">
             </div>
-            
-            <button class="search__btn">Search</button>
+            <div class="dropdown">
+                <label class="arrow-urgency" for="urgency">▼</label>
+                
+                <input class="select-inp inp-clear" type="text" id="urgency" placeholder="Urgency..." value="" readonly />
+        
+                <ul class="dropdown__list-urgency list">
+                    <li class="dpopdown-item" data-value="All">All</li>
+                    <li class="dpopdown-item" data-value="High">High</li>
+                    <li class="dpopdown-item" data-value="Normal">Normal</li>
+                    <li class="dpopdown-item" data-value="Low">Low</li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <label class="arrow-status" for="status">▼</label>
+                <input class="select-inp inp-clear" type="text" id="status" placeholder="Status..." value="" readonly />
+                <ul class="dropdown__list-status list">
+                    <li class="dpopdown-item" data-value="All">All</li>
+                    <li class="dpopdown-item" data-value="Open">Open</li>
+                    <li class="dpopdown-item" data-value="Done">Done</li>
+        
+                </ul>
+            </div>
            
-        </div>
+            <button class="clear__btn">Clear</button>
+        </form>
         <div id="cards">
         
         </div>
