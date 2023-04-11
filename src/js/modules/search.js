@@ -16,7 +16,8 @@ clearBtn.addEventListener("click", clearData);
 function clearData(event) {
   event.preventDefault();
   let filterInputs = document.querySelectorAll(".inp-clear");
-  filterInputs.forEach((el) => (el.value = ""));
+  filterInputs.forEach((el) => { el.value = ""; document.querySelector(".cards-holder").innerHTML = ""; });
+
 }
 
 const cards = document.getElementById("cards");
