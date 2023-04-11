@@ -1,16 +1,26 @@
 
-
-.field-search {
-    position: relative;
+.filter-container{
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-between; */
     align-items: center;
-    flex-wrap: wrap;
-    border: none;
     margin-top: 100px;
     max-width: 1290px;
     margin-right: auto;
     margin-left: auto;
+}
+.field-search {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    border: none;
+    /* margin-top: 100px;
+    max-width: 1290px;
+    margin-right: auto;
+    margin-left: auto;
+     */
 
 }
 
