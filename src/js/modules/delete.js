@@ -1,4 +1,4 @@
-import { token } from "./script.js";
+import { token } from "./fetchGet.js";
 
 export function del() {
     let del = document.querySelectorAll('.card-container-btn-cancel');

@@ -40,7 +40,7 @@ export function login() {
   loginBox.style.display = 'none';
   cardsHolder.style.display = 'block';
   pulseButton.style.display = 'block';
-  filterContainer.style.display = 'block';
+  filterContainer.style.display = 'flex';
   del();
   del();
 }
