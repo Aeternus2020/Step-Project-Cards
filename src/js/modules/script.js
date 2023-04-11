@@ -42,7 +42,8 @@
 
 import { visitCardiologist } from "./cardiolog.js"
 import { visitTherapist } from "./therapist.js"
-import { visitDentist } from "./dentist.js"
+import { visitDentist } from "./dentist.js";
+import { del } from "./delete.js";
 
 export function render(arrCardData) {
     
@@ -112,6 +113,7 @@ export function render(arrCardData) {
             this.classList.add("hidden");
         });
     });
+    del();
 }
 
 // render()

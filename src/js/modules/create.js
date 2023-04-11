@@ -21,6 +21,11 @@ btnAdd.addEventListener('click', (event) => {
     post(doctor);
 })
 
+function ucFirst(str) {
+    if (!str) return str;
+    return str[0].toUpperCase() + str.slice(1);
+  }
+
 function clear() {
     const inputs = form.querySelectorAll('input');
     inputs.forEach(input => {
@@ -42,12 +47,12 @@ function clear() {
             body: JSON.stringify({
                 title: purpose.value,
                 description: description.value,
-                doctor: doctor.value,
-                name: name.value,
+                doctor: ucFirst(doctor.value),
+                name: pib.value,
                 urgency: urgency.value,
                 status: stat.value,
-                bp: index.value,
-                age: age.value,
+                bp: +index.value,
+                age: +age.value,
                 weight: pressure.value,
                 disease: disease.value,
                 lastDate: date.value,
@@ -56,6 +61,7 @@ function clear() {
             .then(response => response.json())
             .then(response => {
                 console.log(response);
+                console.log(response.doctor);
                 clear();
             });
         }

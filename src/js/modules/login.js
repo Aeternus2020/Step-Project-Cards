@@ -38,7 +38,7 @@ export function login() {
   cardsHolder.style.display = 'block';
   pulseButton.style.display = 'block';
   filterContainer.style.display = 'flex';
-  del();
+  // del();
 }
 
 export function logout() {
