@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/reset.min.css?_v=20230410112809">
-    <link rel="stylesheet" href="./css/header.min.css?_v=20230410112809">
-    <link rel="stylesheet" href="./css/globalStyles.min.css?_v=20230410112809">
-    <link rel="stylesheet" href="./css/filter.min.css?_v=20230410112809">
-    <link rel="stylesheet" href="./css/login.min.css?_v=20230410112809">
-    <link rel="stylesheet" href="./css/cardsStyle.min.css?_v=20230410112809">
+    <link rel="stylesheet" href="./css/reset.min.css?_v=20230411160932">
+    <link rel="stylesheet" href="./css/header.min.css?_v=20230411160932">
+    <link rel="stylesheet" href="./css/globalStyles.min.css?_v=20230411160932">
+    <link rel="stylesheet" href="./css/filter.min.css?_v=20230411160932">
+    <link rel="stylesheet" href="./css/login.min.css?_v=20230411160932">
+    <link rel="stylesheet" href="./css/cardsStyle.min.css?_v=20230411160932">
+    <link rel="stylesheet" href="./css/create.min.css?_v=20230411160932">
     <title>HealthSphere</title>
 
 </head>
@@ -67,18 +68,9 @@
     <div class="container cards-holder">
 
 </div>
-    <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-
-<body>
+    
     <div class="login-box">
+        <button class="login-form-btn-cancel"><img src="./img/cancel (1).svg" alt=""></button>
         <h2>Login</h2>
         <form>
             <div class="user-box">
@@ -99,9 +91,54 @@
         </form>
     </div>
     <div class="vacuum">No items have been added.</div>
-</body>
 
-</html>
+    
+    <div class="login-box create-box">
+        <button class="form-btn-cancel"><img src="./img/cancel (1).svg" alt=""></button>
+        <h2>Створити нову картку</h2>
+        <form action="#" class="form-box">
+                <select name="doctor" class="user-box" id="doctor" required="required">
+                    <option value=" ">Doctor</option>
+                    <option value="dentist">Стоматолог</option>
+                    <option value="cardiologist">Кардіолог</option>
+                    <option value="therapist">Терапевт</option>
+                </select>
+                <select name="urgency" class="user-box" id="urgency" required="required">
+                    <option value=" ">Priority</option>
+                    <option value="high">High</option>
+                    <option value="normal">Normal</option>
+                    <option value="low">Low</option>
+                </select>
+                <select name="status" class="user-box" id="stat" required="required">
+                    <option value=" ">Status</option>
+                    <option value="open">Open</option>
+                    <option value="done">Done</option>
+                </select>
+                <input type="text" class="user-box" name="purpose" id="purpose" placeholder="Мета візиту">
+                <input type="text" class="user-box" name="description" id="description" placeholder="Короткий опис візиту">
+                <input type="text" class="user-box" name="name" id="name" placeholder="ПІБ">
+                <input type="number" class="user-box" name="pressure" id="pressure" placeholder="Звичайний тиск">
+                <input type="number" class="user-box" name="index" id="index" placeholder="Індекс маси тіла">
+                <input type="text" class="user-box" name="disease" id="disease" placeholder="Перенесені захворювання">
+                <input type="number" class="user-box" name="age" id="age" placeholder="Вік">
+                <input type="date" class="user-box" name="date" id="date" placeholder="Дата останнього відвідування">
+            <a href="#" class="add user-box">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Створити
+            </a>
+            <a href="#" class="clear user-box">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Очистити
+            </a>
+        </form>
+    </div>
+
 </body>
-<script src="./js/app.min.js?_v=20230410112809" defer></script>
+<script src="./js/app.min.js?_v=20230411160932" defer></script>
 </html>

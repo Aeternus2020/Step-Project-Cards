@@ -63,6 +63,7 @@
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
+    text-align: center;
     transition: .5s;
     margin-top: 40px;
     letter-spacing: 4px
@@ -164,6 +165,16 @@
     100% {
         bottom: 100%;
     }
+}
+
+.form-btn-cancel,
+.login-form-btn-cancel {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 33.94px;
+    height: 33.94px;
+    border-radius: 100px;
 }
 
 .vacuum {
