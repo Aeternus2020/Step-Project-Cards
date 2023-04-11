@@ -40,17 +40,9 @@
 // }
 //post("dentist")
 
-
-
-
-
 import { visitCardiologist } from "./cardiolog.js"
 import { visitTherapist } from "./therapist.js"
 import { visitDentist } from "./dentist.js"
-
-
-
-
 
 export function render(arrCardData) {
     
@@ -120,8 +112,6 @@ export function render(arrCardData) {
             this.classList.add("hidden");
         });
     });
-
-
 }
 
 // render()

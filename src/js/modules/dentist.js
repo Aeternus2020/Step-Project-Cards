@@ -13,7 +13,6 @@ export class visitDentist extends Modal {
         lastDate.innerHTML = `<img src="${imgSrc}" alt=""> Останього разу був: ${this.date}`;
         lastDate.classList.add("date", "hidden")
         card.children[0].append(lastDate)
-
     }
 
 }

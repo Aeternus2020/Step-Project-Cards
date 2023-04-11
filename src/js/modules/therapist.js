@@ -14,5 +14,4 @@ export class visitTherapist extends Modal {
         age.classList.add("age", "hidden")
         card.children[0].append(age)
     }
-
 }
