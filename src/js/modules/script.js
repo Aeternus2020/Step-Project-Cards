@@ -1,5 +1,3 @@
-
-
 // async function getData(token) {
 //     return await fetch("https://ajax.test-danit.com/api/v2/cards/", {
 //         method: 'GET',
@@ -12,31 +10,39 @@
 // }
 // console.log(getData("22272608-2570-4723-a573-9e9451138488"));
 
-export let token = "22272608-2570-4723-a573-9e9451138488"
+// let token = "22272608-2570-4723-a573-9e9451138488"
 
-function post(doctor) {
-    fetch("https://ajax.test-danit.com/api/v2/cards", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-            "name": "Daniel",
-            "doctor": `${doctor}`,
-            "title": "Почки Нету",
-            "description": "Вернуть Почку Хочу",
-            "urgency": "Срочно",
-            "age": "21",
-            "index": "3425",
-            "disease": "Не вистачає клапана",
-            "pressure": "120.70",
-        })
-    })
-        .then(response => response.json())
-        .then(response => console.log(response))
-}
-// post("therapist")
+
+
+
+
+// function post(doctor) {
+//     fetch("https://ajax.test-danit.com/api/v2/cards", {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': `Bearer ${token}`
+//         },
+//         body: JSON.stringify({
+//             "name": "Daniel",
+//             "doctor": `${doctor}`,
+//             "title": "Почки Нету",
+//             "description": "Вернуть Почку Хочу",
+//             "urgency": "Срочно",
+//             "age": "21",
+//             "index": "3425",
+//             "disease": "Не вистачає клапана",
+//             "pressure": "120.70",
+//         })
+//     })
+//         .then(response => response.json())
+//         .then(response => console.log(response))
+// }
+//post("dentist")
+
+
+
+
 
 import { visitCardiologist } from "./cardiolog.js"
 import { visitTherapist } from "./therapist.js"
@@ -119,5 +125,3 @@ export function render(arrCardData) {
 }
 
 // render()
-
-

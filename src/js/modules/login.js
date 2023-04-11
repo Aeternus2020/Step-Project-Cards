@@ -6,7 +6,7 @@ export const btnLogin = document.querySelector('.login');
 export const cardsHolder = document.querySelector('.cards-holder');
 export const loginBox = document.querySelector('.login-box');
 export const pulseButton = document.querySelector('.pulse-button');
-export const filterContainer = document.querySelector('.filter-container');
+export const filterContainer = document.querySelector('.field-search');
 export const createBox = document.querySelector('.create-box');
 
 document.querySelector('.login-form-btn-cancel').addEventListener('click', (event) => {
