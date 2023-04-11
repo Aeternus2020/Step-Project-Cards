@@ -28,7 +28,7 @@ function clear() {
     })
     const selects = form.querySelectorAll('select');
     selects.forEach(select => {
-        select.value = " ";
+        select.value =" ";
     })
     }
 
