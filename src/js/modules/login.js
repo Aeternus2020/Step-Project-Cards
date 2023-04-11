@@ -1,4 +1,5 @@
 import { del } from "./delete.js";
+import { del } from "./delete.js";
 
 const username = document.getElementById('username');
 const password = document.getElementById('password');
@@ -26,6 +27,7 @@ btnLogin.addEventListener('click', () => {
     password.value = '';
     logout();
     createBox.style.display = 'none';
+    createBox.style.display = 'none';
   } else if ((btnLogin.value = 'Logout')) {
     loginBox.style.display = 'none';
   }
@@ -33,14 +35,17 @@ btnLogin.addEventListener('click', () => {
 
 
 export function login() {
+export function login() {
   btnLogin.value = 'Logout';
   loginBox.style.display = 'none';
   cardsHolder.style.display = 'block';
   pulseButton.style.display = 'block';
   filterContainer.style.display = 'block';
   del();
+  del();
 }
 
+export function logout() {
 export function logout() {
   cardsHolder.style.display = 'none';
   pulseButton.style.display = 'none';
