@@ -12,11 +12,7 @@
 // }
 // console.log(getData("22272608-2570-4723-a573-9e9451138488"));
 
-// let token = "22272608-2570-4723-a573-9e9451138488"
-
-
-
-
+export let token = "22272608-2570-4723-a573-9e9451138488"
 
 // function post(doctor) {
 //     fetch("https://ajax.test-danit.com/api/v2/cards", {
