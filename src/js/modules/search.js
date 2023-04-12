@@ -9,8 +9,6 @@ fetchData()
 let cardsData = JSON.parse(localStorage.getItem("cardsData"));
 console.log(cardsData);
 
-
-
 const clearBtn = document.querySelector(".clear__btn");
 clearBtn.addEventListener("click", clearData);
 function clearData(event) {
@@ -116,5 +114,3 @@ async function filterSearch() {
     }
     render(filterData)
 }
-
-

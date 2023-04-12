@@ -1,5 +1,3 @@
-
-
 // async function getData(token) {
 //     return await fetch("https://ajax.test-danit.com/api/v2/cards/", {
 //         method: 'GET',
@@ -42,17 +40,10 @@
 // }
 //post("dentist")
 
-
-
-
-
 import { visitCardiologist } from "./cardiolog.js"
 import { visitTherapist } from "./therapist.js"
-import { visitDentist } from "./dentist.js"
-
-
-
-
+import { visitDentist } from "./dentist.js";
+import { del } from "./delete.js";
 
 export function render(arrCardData) {
     
@@ -122,10 +113,7 @@ export function render(arrCardData) {
             this.classList.add("hidden");
         });
     });
-
-
+    del();
 }
 
 // render()
-
-
