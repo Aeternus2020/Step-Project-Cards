@@ -14,7 +14,12 @@ clearBtn.addEventListener("click", clearData);
 function clearData(event) {
   event.preventDefault();
   let filterInputs = document.querySelectorAll(".inp-clear");
-  filterInputs.forEach((el) => { el.value = ""; document.querySelector(".cards-holder").innerHTML = ""; });
+  filterInputs.forEach((el) => {
+    el.value = "";
+    document.querySelector(".cards-holder").innerHTML = "";
+    cards.innerHTML = "";
+    searchValue = "";
+  });
 
 }
 
@@ -22,7 +27,7 @@ const cards = document.getElementById("cards");
 
 
 
-// ЭTO ВАРИАНТ КОГДА ВСЕ ИНПУТ И СПИСОК В ДИВЕ И ПРБЕГАЕМСЯ ПО СПИСКАМ
+// Зв'язані дропдауни 
 
 document.querySelectorAll(".dropdown").forEach(function (dropdownWrapper) {
   const dpopList = dropdownWrapper.querySelector(".list");
@@ -51,7 +56,7 @@ document.querySelectorAll(".dropdown").forEach(function (dropdownWrapper) {
   // клік ззовні дропдауна
   document.addEventListener("click", function (e) {
     if (e.target !== dropInput) {
-      // dropInput.classList.remove("input:active");
+   
       dpopList.classList.remove("list-visible");
     }
   });
@@ -59,7 +64,7 @@ document.querySelectorAll(".dropdown").forEach(function (dropdownWrapper) {
   // закриття списку табом чи ескейпом
   document.addEventListener("keydown", function (e) {
     if (e.key === "Tab" || e.key === "Escape") {
-      // dropInput.classList.remove("input:active");
+      
       dpopList.classList.remove("list-visible");
     }
   });
@@ -81,8 +86,8 @@ searchInp.oninput = (event) => {
 
 async function filterSearch() {
  let filterData = [];
-  document.querySelector(".cards-holder").innerHTML = "";
-  cards.innerHTML = ""; // поставить div в который вставляются карточки в html
+  document.querySelector(".cards-holder").innerHTML = "";//div для карточек
+  cards.innerHTML = ""; // div для no results
   let count = 0;
   const rgxSearch = new RegExp(searchValue.replace(/[,.\s]+/g, "\\W*"), "i");
   let rgxUrgency = new RegExp(inpUrgency.value, "i");
@@ -93,6 +98,7 @@ async function filterSearch() {
   if (inpStatus.value === "All") {
     rgxStatus = RegExp("", "i");
   }
+  console.log(inpStatus.value,inpUrgency.value,searchValue);
   cardsData.forEach((card) => {
     console.log(card);
     if (
@@ -101,8 +107,6 @@ async function filterSearch() {
       rgxStatus.test(card.status)
     ) {
         filterData.push(card);
-      //render(card);
-      //  console.log("yes");
       count++;
     }
   });

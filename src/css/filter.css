@@ -1,6 +1,6 @@
 
 .filter-container{
-    display: flex;
+    display: block;
     /* justify-content: space-between; */
     align-items: center;
     margin-top: 100px;
@@ -9,6 +9,7 @@
     margin-left: auto;
 }
 .field-search {
+    
     position: relative;
     width: 100%;
     display: flex;
@@ -272,3 +273,4 @@
     justify-content: center;
     margin-top: 50px;
 }
+
