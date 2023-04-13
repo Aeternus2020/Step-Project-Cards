@@ -24,7 +24,7 @@ btnAdd.addEventListener('click', (event) => {
 function ucFirst(str) {
     if (!str) return str;
     return str[0].toUpperCase() + str.slice(1);
-  }
+}
 
 function clear() {
     const inputs = form.querySelectorAll('input');
@@ -33,38 +33,38 @@ function clear() {
     })
     const selects = form.querySelectorAll('select');
     selects.forEach(select => {
-        select.value =" ";
+        select.value = " ";
     })
-    }
+}
 
-    function post(doctor) {
-        fetch("https://ajax.test-danit.com/api/v2/cards", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                title: purpose.value,
-                description: description.value,
-                doctor: ucFirst(doctor.value),
-                name: pib.value,
-                urgency: urgency.value,
-                status: stat.value,
-                bp: +index.value,
-                age: +age.value,
-                weight: pressure.value,
-                disease: disease.value,
-                lastDate: date.value,
-            })
+function post(doctor) {
+    fetch("https://ajax.test-danit.com/api/v2/cards", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            title: purpose.value,
+            description: description.value,
+            doctor: ucFirst(doctor.value),
+            name: pib.value,
+            urgency: urgency.value,
+            status: stat.value,
+            bp: +index.value,
+            age: +age.value,
+            weight: pressure.value,
+            disease: disease.value,
+            lastDate: date.value,
         })
-            .then(response => response.json())
-            .then(response => {
-                console.log(response);
-                console.log(response.doctor);
-                clear();
-            });
-        }
+    })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response);
+            console.log(response.doctor);
+            clear();
+        });
+}
 
 clearBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -76,8 +76,26 @@ pulseButton.addEventListener('click', () => {
     logout();
 })
 
-btnCansel.addEventListener('click', ()=> {
+btnCansel.addEventListener('click', () => {
     clear();
     createBox.style.display = 'none';
     login();
 })
+//----------------
+let createFormInputsWrapper = document.querySelector(".create-form-input-container")
+let createFormInputs = Array.from(createFormInputsWrapper.querySelectorAll("input"))
+const excludedInputs = createFormInputs.slice(4);
+excludedInputs.forEach(e => e.style.display = "none")
+
+
+doctor.addEventListener("change", function () {
+    const isCardiologist = doctor.value === "Cardiologist";
+    const isDentist = doctor.value === "Dentist";
+    const isTherapist = doctor.value === "Therapist";
+
+    date.style.display = isDentist ? "block" : "none";
+    age.style.display = isCardiologist || isTherapist ? "block" : "none";
+    index.style.display = isCardiologist ? "block" : "none";
+    pressure.style.display = isCardiologist ? "block" : "none";
+    disease.style.display = isCardiologist ? "block" : "none";
+});

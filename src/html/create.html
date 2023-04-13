@@ -1,46 +1,41 @@
-
-    <div class="login-box create-box">
+<div class="create-form-background">
+    <div class="create-box">
         <button class="form-btn-cancel"><img src="./img/cancel (1).svg" alt=""></button>
-        <h2>Створити нову картку</h2>
+        <h2>Create new Card</h2>
         <form action="#" class="form-box">
-                <select name="doctor" class="user-box" id="doctor" required="required">
-                    <option value=" ">Doctor</option>
+            <div class="create-form-select-container">
+                <select name="doctor" id="doctor" required="required">
                     <option value="Dentist">Стоматолог</option>
                     <option value="Cardiologist">Кардіолог</option>
                     <option value="Therapist">Терапевт</option>
                 </select>
-                <select name="urgency" class="user-box" id="urgency" required="required">
-                    <option value=" ">Priority</option>
+                <select name="urgency" id="urgency" required="required">
                     <option value="high">High</option>
                     <option value="normal">Normal</option>
                     <option value="low">Low</option>
                 </select>
-                <select name="status" class="user-box" id="stat" required="required">
-                    <option value=" ">Status</option>
+                <select name="status" id="stat" required="required">
                     <option value="open">Open</option>
                     <option value="done">Done</option>
                 </select>
-                <input type="text" class="user-box" name="purpose" id="purpose" placeholder="Мета візиту">
-                <input type="text" class="user-box" name="description" id="description" placeholder="Короткий опис візиту">
-                <input type="text" class="user-box" name="name" id="name" placeholder="ПІБ">
-                <input type="number" class="user-box" name="pressure" id="pressure" placeholder="Звичайний тиск">
-                <input type="number" class="user-box" name="index" id="index" placeholder="Індекс маси тіла">
-                <input type="text" class="user-box" name="disease" id="disease" placeholder="Перенесені захворювання">
-                <input type="number" class="user-box" name="age" id="age" placeholder="Вік">
-                <input type="date" class="user-box" name="date" id="date" placeholder="Дата останнього відвідування">
-            <a href="#" class="add user-box">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Створити
-            </a>
-            <a href="#" class="clear user-box">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Очистити
-            </a>
+            </div>
+            <div class="create-form-input-container">
+                <input type="text" class="" name="purpose" id="purpose" placeholder="Мета візиту">
+                <input type="text" class="" name="description" id="description" placeholder="Короткий опис візиту">
+                <input type="text" class="" name="name" id="name" placeholder="ПІБ">
+                <input type="number" class="" name="pressure" id="pressure" placeholder="Звичайний тиск">
+                <input type="number" class="" name="index" id="index" placeholder="Індекс маси тіла">
+                <input type="text" class="" name="disease" id="disease" placeholder="Перенесені захворювання">
+                <input type="number" class="" name="age" id="age" placeholder="Вік">
+                <input type="date" class="" name="date" id="date" placeholder="Дата останнього відвідування">
+            </div>
+            <div class="create-form-btn-container">
+                <button class="add btn-add-form-create">
+                    Create
+                </button>
+                <button class="clear btn-clear-form-create">
+                    Clear</button>
+            </div>
         </form>
     </div>
+</div>
