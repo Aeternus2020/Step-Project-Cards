@@ -1,6 +1,6 @@
 
-export const token = "1e4f8f83-4aca-4288-bd8a-df89ee91db97";
-
+// export const token = "1e4f8f83-4aca-4288-bd8a-df89ee91db97";
+export const token = localStorage.getItem("token");
 
 export async function fetchData() {
   

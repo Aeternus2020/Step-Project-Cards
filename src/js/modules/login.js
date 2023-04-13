@@ -1,7 +1,8 @@
 import { del } from "./delete.js";
 
-const username = document.getElementById('username');
-const password = document.getElementById('password');
+
+const username = document.getElementById("username");
+const password = document.getElementById("password");
 export const btnLogin = document.querySelector('.login');
 export const cardsHolder = document.querySelector('.cards-holder');
 export const loginBox = document.querySelector('.login-box');
@@ -13,10 +14,10 @@ document.querySelector('.login-form-btn-cancel').addEventListener('click', (even
   loginBox.style.display = 'none';
 });
 
-document.querySelector('.sub').addEventListener('click', (event) => {
-  event.preventDefault();
-  username.value && password.value ? login() : logout();
-});
+//  document.querySelector('.sub').addEventListener('click', (event) => {
+//   event.preventDefault();
+//   username.value && password.value ? login() : logout();
+// });
 
 btnLogin.addEventListener('click', () => {
   if ((btnLogin.value = 'Login')) {
