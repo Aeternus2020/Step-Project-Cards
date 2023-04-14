@@ -15,7 +15,7 @@ export async function fetchData() {
   });
   const result = await data.json();
 
-  localStorage.clear();
+  localStorage.removeItem("cardsData");
   localStorage.setItem("cardsData", JSON.stringify(result));
 
 }
