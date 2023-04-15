@@ -95,7 +95,7 @@ searchInp.oninput = (event) => {
 
 
 async function filterSearch() {
- let filterData = [];
+  let filterData = [];
   document.querySelector(".cards-holder").innerHTML = "";//div для карточек
   cards.innerHTML = ""; // div для no results
   let count = 0;
@@ -105,42 +105,27 @@ async function filterSearch() {
   if (inpUrgency.value === "All") {
     rgxUrgency = RegExp("", "i");
   }
-  let rgxStatus = new RegExp(inpStatus.value, "i");
-  if (inpStatus.value === "All") {
-    rgxStatus = RegExp("", "i");
-  }
-  console.log(inpStatus.value,inpUrgency.value,searchValue);
-  cardsData.forEach((card) => {
-    console.log(card);
-    if (
-      (rgxSearch.test(card.title) || rgxSearch.test(card.description)) &&
-      rgxUrgency.test(card.urgency) &&
-      rgxStatus.test(card.status)
-    ) {
-        filterData.push(card);
-      count++;
-    }
     let rgxStatus = new RegExp(inpStatus.value, "i");
     if (inpStatus.value === "All") {
-        rgxStatus = RegExp("", "i");
+      rgxStatus = RegExp("", "i");
     }
 
 
     cardsData.forEach((card) => {
-        if (
-            (rgxSearch.test(card.title) || rgxSearch.test(card.description)) &&
-            rgxUrgency.test(card.urgency) &&
-            rgxStatus.test(card.status)
-        ) {
-            filterData.push(card);
-            count++;
-        }
+      if (
+        (rgxSearch.test(card.title) || rgxSearch.test(card.description)) &&
+        rgxUrgency.test(card.urgency) &&
+        rgxStatus.test(card.status)
+      ) {
+        filterData.push(card);
+        count++;
+      }
     });
     if (count === 0) {
-        cards.insertAdjacentHTML(
-            "afterbegin",
-            '<h2 class="search-result">No results</h2>'
-        );
+      cards.insertAdjacentHTML(
+        "afterbegin",
+        '<h2 class="search-result">No results</h2>'
+      );
     }
     render(filterData)
-}
+  }
