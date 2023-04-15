@@ -11,9 +11,8 @@ let cardsData = JSON.parse(localStorage.getItem("cardsData"));
 
 const clearBtn = document.querySelector(".clear__btn");
 clearBtn.addEventListener("click", clearData);
-<<<<<<< HEAD
-export function clearData(event) {
-  //console.log('попал сюда');
+function clearData(event) {
+ 
   event.preventDefault();
   let filterInputs = document.querySelectorAll(".inp-clear");
   filterInputs.forEach((el) => {
@@ -22,17 +21,6 @@ export function clearData(event) {
     cards.innerHTML = "";
     searchValue = "";
   });
-=======
-function clearData(event) {
-    event.preventDefault();
-    let filterInputs = document.querySelectorAll(".inp-clear");
-    filterInputs.forEach((el) => {
-        el.value = "";
-        document.querySelector(".cards-holder").innerHTML = "";
-        cards.innerHTML = "";
-        searchValue = "";
-    });
->>>>>>> 4305a6e2c524a36864679be932b6df07b7742b27
 
 }
 
@@ -106,7 +94,6 @@ searchInp.oninput = (event) => {
 
 
 
-<<<<<<< HEAD
 async function filterSearch() {
  let filterData = [];
   document.querySelector(".cards-holder").innerHTML = "";//div для карточек
@@ -132,17 +119,6 @@ async function filterSearch() {
     ) {
         filterData.push(card);
       count++;
-=======
-export async function filterSearch() {
-    let filterData = [];
-    document.querySelector(".cards-holder").innerHTML = "";//div для карточек
-    cards.innerHTML = ""; // div для no results
-    let count = 0;
-    const rgxSearch = new RegExp(searchValue.replace(/[,.\s]+/g, "\\W*"), "i");
-    let rgxUrgency = new RegExp(inpUrgency.value, "i");
-    if (inpUrgency.value === "All") {
-        rgxUrgency = RegExp("", "i");
->>>>>>> 4305a6e2c524a36864679be932b6df07b7742b27
     }
     let rgxStatus = new RegExp(inpStatus.value, "i");
     if (inpStatus.value === "All") {

@@ -1,13 +1,7 @@
 import { pulseButton, createBox, login, logout } from "./login.js";
-<<<<<<< HEAD
 import { token } from "./fetchGet.js";
 import { render } from "./script.js";
 import {clearInputs} from "./search.js"  //імпорт з мого файлу
-=======
-import { token, fetchData } from "./fetchGet.js";
-import { render } from "./script.js";
-import { filterSearch } from "./search.js"
->>>>>>> 4305a6e2c524a36864679be932b6df07b7742b27
 const clearBtn = document.querySelector('.clear');
 const form = document.querySelector(".form-box");
 const btnCansel = document.querySelector('.form-btn-cancel');
