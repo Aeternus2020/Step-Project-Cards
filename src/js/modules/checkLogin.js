@@ -1,5 +1,6 @@
 import { login } from "./login.js";
 import { logout } from "./login.js";
+import { foundBtn } from "./create.js";
 
 
 // const email = "Taisiya.zhdan@gmail.com";
@@ -8,7 +9,6 @@ import { logout } from "./login.js";
 
 // повторне отримання токену після реєстрації
 async function getToken(username, password) {
-    console.log('getToken');
   const data = await fetch("https://ajax.test-danit.com/api/v2/cards/login", {
     method: "POST",
     headers: {
@@ -23,15 +23,13 @@ async function getToken(username, password) {
 
   if (res === "Incorrect username or password") {
       
-     alert(res);
+    alert(res);
       return false;
   } else {
       localStorage.setItem("token", res);
-      console.log(res);
       return true;
   }
 
-  
 }
 
 
@@ -79,6 +77,6 @@ async function checkUserLogIn() {
             document.getElementById("username").value = "";
             document.getElementById("password").value = "";
     }
-    
+    foundBtn();
   
 }    

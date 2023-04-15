@@ -4,12 +4,12 @@ import { fetchData } from "./fetchGet.js"
 export class Visit extends Modal {
     constructor(optional) {
         super(optional)
-        this.doctor = optional.doctor;
-        this.name = optional.name;
-        this.id = optional.id;
-        this.title = optional.title;
-        this.description = optional.description;
-        this.urgency = optional.urgency;
+        // this.doctor = optional.doctor;
+        // this.name = optional.name;
+        // this.id = optional.id;
+        // this.title = optional.title;
+        // this.description = optional.description;
+        // this.urgency = optional.urgency;
     }
 
     printCard() {
@@ -65,33 +65,33 @@ export class Visit extends Modal {
 
 
     formCreate() {
-        let fncCreate = super.formCreateEdit()
+        let fncCreate = super.formCreateEdit();
         let content = ` <form action="#" class="form-box">
         <div class="create-form-select-container">
-            <select name="doctor" id="doctor" required="required">
+            <select name="doctor" class="doctor user-box" required="required">
                 <option value="Dentist">Стоматолог</option>
                 <option value="Cardiologist">Кардіолог</option>
                 <option value="Therapist">Терапевт</option>
             </select>
-            <select name="urgency" id="urgency" required="required">
+            <select name="urgency" class="urgency user-box" required="required">
                 <option value="hight">High</option>
                 <option value="normal">Normal</option>
                 <option value="low">Low</option>
             </select>
-            <select name="status" id="stat" required="required">
+            <select name="status" class="stat user-box" required="required">
                 <option value="open">Open</option>
                 <option value="done">Done</option>
             </select>
         </div>
         <div class="create-form-input-container">
-            <input type="text" class="" name="purpose" id="purpose" placeholder="Мета візиту">
-            <input type="text" class="" name="description" id="description" placeholder="Короткий опис візиту">
-            <input type="text" class="" name="name" id="name" placeholder="ПІБ">
-            <input type="date" class="" name="date" id="date" placeholder="Дата останнього відвідування">
-            <input type="number" class="" name="pressure" id="pressure" placeholder="Звичайний тиск">
-            <input type="number" class="" name="index" id="index" placeholder="Індекс маси тіла">
-            <input type="text" class="" name="disease" id="disease" placeholder="Перенесені захворювання">
-            <input type="number" class="" name="age" id="age" placeholder="Вік">
+            <input type="text" name="purpose" class="purpose user-box" placeholder="Мета візиту">
+            <input type="text" name="description" class="description user-box" placeholder="Короткий опис візиту">
+            <input type="text" name="name" class="name user-box" placeholder="ПІБ">
+            <input type="date" name="date" class="date user-box" placeholder="Дата останнього відвідування">
+            <input type="number" name="pressure" class="pressure user-box" placeholder="Звичайний тиск">
+            <input type="number" name="index" class="index user-box" placeholder="Індекс маси тіла">
+            <input type="text" name="disease" class="disease user-box" placeholder="Перенесені захворювання">
+            <input type="number" name="age" class="age user-box" placeholder="Вік">
         </div>
         <div class="create-form-btn-container">
             <button class="add btn-add-form-create">

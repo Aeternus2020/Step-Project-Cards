@@ -32,7 +32,6 @@
 
 .create-box {
     position: relative;
-    display: none;
     width: 500px;
     height: 720px;
     margin: 0 auto;

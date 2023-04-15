@@ -1,44 +1,3 @@
-// async function getData(token) {
-//     return await fetch("https://ajax.test-danit.com/api/v2/cards/", {
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization': `Bearer ${token}`
-//         }
-//     })
-//         .then(response => response.json())
-// }
-// console.log(getData("22272608-2570-4723-a573-9e9451138488"));
-
-// let token = "22272608-2570-4723-a573-9e9451138488"
-
-
-
-
-
-// function post(doctor) {
-//     fetch("https://ajax.test-danit.com/api/v2/cards", {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization': `Bearer ${token}`
-//         },
-//         body: JSON.stringify({
-//             "name": "Daniel",
-//             "doctor": `${doctor}`,
-//             "title": "Почки Нету",
-//             "description": "Вернуть Почку Хочу",
-//             "urgency": "Срочно",
-//             "age": "21",
-//             "index": "3425",
-//             "disease": "Не вистачає клапана",
-//             "pressure": "120.70",
-//         })
-//     })
-//         .then(response => response.json())
-//         .then(response => console.log(response))
-// }
-//post("dentist")
 
 import { visitCardiologist } from "./cardiolog.js"
 import { visitTherapist } from "./therapist.js"
@@ -61,12 +20,12 @@ export function render(arrCardData) {
           //  return user;
         } else {
             console.log(`Карточка з цим айді:"${user.id}", не підходить під категорії лікарів`);
-            //fetch(`https://ajax.test-danit.com/api/v2/cards/${user.id}`, {
-            //    method: 'DELETE',
-            //    headers: {
-            //        'Authorization': `Bearer ${token}`
-            //    },
-            //})
+            fetch(`https://ajax.test-danit.com/api/v2/cards/${user.id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+            })
         }
     });
 
@@ -115,5 +74,3 @@ export function render(arrCardData) {
     });
     del();
 }
-
-// render()
