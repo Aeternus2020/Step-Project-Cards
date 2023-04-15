@@ -1,7 +1,13 @@
 import { pulseButton, createBox, login, logout } from "./login.js";
+<<<<<<< HEAD
 import { token } from "./fetchGet.js";
 import { render } from "./script.js";
 import {clearInputs} from "./search.js"  //імпорт з мого файлу
+=======
+import { token, fetchData } from "./fetchGet.js";
+import { render } from "./script.js";
+import { filterSearch } from "./search.js"
+>>>>>>> 4305a6e2c524a36864679be932b6df07b7742b27
 const clearBtn = document.querySelector('.clear');
 const form = document.querySelector(".form-box");
 const btnCansel = document.querySelector('.form-btn-cancel');
@@ -18,10 +24,20 @@ const disease = document.getElementById('disease');
 const age = document.getElementById('age');
 const date = document.getElementById('date');
 
+let cardsData = JSON.parse(localStorage.getItem("cardsData"));
+
 btnAdd.addEventListener('click', (event) => {
     event.preventDefault();
-    post(doctor);
+    btnCreate()
 })
+
+async function btnCreate() {
+
+    await post(doctor);
+    await fetchData()
+    await filterSearch()
+    render(cardsData)
+}
 
 function ucFirst(str) {
     if (!str) return str;
@@ -34,13 +50,16 @@ function clear() {
         input.value = '';
     })
     const selects = form.querySelectorAll('select');
-    selects.forEach(select => {
-        select.value = " ";
-    })
+
+    selects[0].value = "Dentist";
+    selects[1].value = "hight";
+    selects[2].value = "open";
+
+
 }
 
-function post(doctor) {
-    fetch("https://ajax.test-danit.com/api/v2/cards", {
+async function post(doctor) {
+    await fetch("https://ajax.test-danit.com/api/v2/cards", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -62,8 +81,7 @@ function post(doctor) {
     })
         .then(response => response.json())
         .then(response => {
-            console.log(response);
-            console.log(response.doctor);
+
             clear();
            createBox.style.display = "none"; //  модалка ховається
             login();

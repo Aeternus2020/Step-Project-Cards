@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link rel="stylesheet" href="./css/reset.min.css?_v=20230415230807">
     <link rel="stylesheet" href="./css/header.min.css?_v=20230415230807">
     <link rel="stylesheet" href="./css/globalStyles.min.css?_v=20230415230807">
@@ -12,6 +13,15 @@
     <link rel="stylesheet" href="./css/login.min.css?_v=20230415230807">
     <link rel="stylesheet" href="./css/cardsStyle.min.css?_v=20230415230807">
     <link rel="stylesheet" href="./css/create.min.css?_v=20230415230807">
+=======
+    <link rel="stylesheet" href="./css/reset.min.css?_v=20230415214828">
+    <link rel="stylesheet" href="./css/header.min.css?_v=20230415214828">
+    <link rel="stylesheet" href="./css/globalStyles.min.css?_v=20230415214828">
+    <link rel="stylesheet" href="./css/filter.min.css?_v=20230415214828">
+    <link rel="stylesheet" href="./css/login.min.css?_v=20230415214828">
+    <link rel="stylesheet" href="./css/cardsStyle.min.css?_v=20230415214828">
+    <link rel="stylesheet" href="./css/create.min.css?_v=20230415214828">
+>>>>>>> 4305a6e2c524a36864679be932b6df07b7742b27
     <title>HealthSphere</title>
 
 </head>
@@ -68,30 +78,28 @@
     <div class="container cards-holder">
 
 </div>
-    
     <div class="login-box">
-        <button class="login-form-btn-cancel"><img src="./img/cancel (1).svg" alt=""></button>
-        <h2>Login</h2>
-        <form>
-            <div class="user-box">
-                <input type="email" name="username" id='username' required="">
-                <label>Username</label>
-            </div>
-            <div class="user-box">
-                <input type="password" name="password" id="password" required="">
-                <label>Password</label>
-            </div>
-            <a href="#" class="sub">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Submit
-            </a>
-        </form>
-    </div>
-    <div class="vacuum">No items have been added.</div>
-
+    <button class="login-form-btn-cancel"><img src="./img/cancel (1).svg" alt=""></button>
+    <h2>Login</h2>
+    <form>
+        <div class="user-box">
+            <input type="text" name="username" id='username' required="" autocomplete="off">
+            <label>Username</label>
+        </div>
+        <div class="user-box">
+            <input type="password" name="password" id="password" required="">
+            <label>Password</label>
+        </div>
+        <a href="#" class="sub">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+        </a>
+    </form>
+</div>
+<div class="vacuum">No items have been added.</div>
     <div class="create-form-background">
     <div class="create-box">
         <button class="form-btn-cancel"><img src="./img/cancel (1).svg" alt=""></button>
@@ -104,7 +112,7 @@
                     <option value="Therapist">Терапевт</option>
                 </select>
                 <select name="urgency" id="urgency" required="required">
-                    <option value="high">High</option>
+                    <option value="hight">High</option>
                     <option value="normal">Normal</option>
                     <option value="low">Low</option>
                 </select>
@@ -117,11 +125,11 @@
                 <input type="text" class="" name="purpose" id="purpose" placeholder="Мета візиту">
                 <input type="text" class="" name="description" id="description" placeholder="Короткий опис візиту">
                 <input type="text" class="" name="name" id="name" placeholder="ПІБ">
+                <input type="date" class="" name="date" id="date" placeholder="Дата останнього відвідування">
                 <input type="number" class="" name="pressure" id="pressure" placeholder="Звичайний тиск">
                 <input type="number" class="" name="index" id="index" placeholder="Індекс маси тіла">
                 <input type="text" class="" name="disease" id="disease" placeholder="Перенесені захворювання">
                 <input type="number" class="" name="age" id="age" placeholder="Вік">
-                <input type="date" class="" name="date" id="date" placeholder="Дата останнього відвідування">
             </div>
             <div class="create-form-btn-container">
                 <button class="add btn-add-form-create">
@@ -134,5 +142,9 @@
     </div>
 </div>
 </body>
+<<<<<<< HEAD
 <script src="./js/app.min.js?_v=20230415230807" defer></script>
+=======
+<script src="./js/app.min.js?_v=20230415214828" defer></script>
+>>>>>>> 4305a6e2c524a36864679be932b6df07b7742b27
 </html>
