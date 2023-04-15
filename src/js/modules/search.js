@@ -11,7 +11,8 @@ console.log(cardsData);
 
 const clearBtn = document.querySelector(".clear__btn");
 clearBtn.addEventListener("click", clearData);
-function clearData(event) {
+export function clearData(event) {
+  //console.log('попал сюда');
   event.preventDefault();
   let filterInputs = document.querySelectorAll(".inp-clear");
   filterInputs.forEach((el) => {
@@ -23,6 +24,15 @@ function clearData(event) {
 
 }
 
+
+export function clearInputs() 
+{let filterInputs = document.querySelectorAll(".inp-clear");
+  filterInputs.forEach((el) => {
+    el.value = "";
+    document.querySelector(".cards-holder").innerHTML = "";
+    cards.innerHTML = "";
+    searchValue = "";
+  }) }
 const cards = document.getElementById("cards");
 
 
@@ -90,6 +100,7 @@ async function filterSearch() {
   cards.innerHTML = ""; // div для no results
   let count = 0;
   const rgxSearch = new RegExp(searchValue.replace(/[,.\s]+/g, "\\W*"), "i");
+  
   let rgxUrgency = new RegExp(inpUrgency.value, "i");
   if (inpUrgency.value === "All") {
     rgxUrgency = RegExp("", "i");

@@ -54,6 +54,7 @@ class User {
   }
     validateEmail() {
     const regex = /^\S+@\S+\.\S+$/;
+    
     return regex.test(this.email);
   }
 }

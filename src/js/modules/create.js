@@ -1,5 +1,7 @@
 import { pulseButton, createBox, login, logout } from "./login.js";
 import { token } from "./fetchGet.js";
+import { render } from "./script.js";
+import {clearInputs} from "./search.js"  //імпорт з мого файлу
 const clearBtn = document.querySelector('.clear');
 const form = document.querySelector(".form-box");
 const btnCansel = document.querySelector('.form-btn-cancel');
@@ -63,7 +65,14 @@ function post(doctor) {
             console.log(response);
             console.log(response.doctor);
             clear();
+           createBox.style.display = "none"; //  модалка ховається
+            login();
+            clearInputs();                      // очищаються інпути фільтрації, якщо в них уже були дані
+            let Newcard = [];             // пустий масив
+            Newcard.push(response);  // додати результат в масив
+            render(Newcard);       // показати картку
         });
+    
 }
 
 clearBtn.addEventListener('click', (event) => {
