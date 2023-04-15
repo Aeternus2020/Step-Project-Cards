@@ -1,5 +1,7 @@
 import { pulseButton, createBox, login, logout } from "./login.js";
-import { token } from "./fetchGet.js";
+import { token, fetchData } from "./fetchGet.js";
+import { render } from "./script.js";
+import { filterSearch } from "./search.js"
 const clearBtn = document.querySelector('.clear');
 const form = document.querySelector(".form-box");
 const btnCansel = document.querySelector('.form-btn-cancel');
@@ -16,12 +18,20 @@ const disease = document.getElementById('disease');
 const age = document.getElementById('age');
 const date = document.getElementById('date');
 
-console.dir(doctor);
+let cardsData = JSON.parse(localStorage.getItem("cardsData"));
 
 btnAdd.addEventListener('click', (event) => {
     event.preventDefault();
-    post(doctor);
+    btnCreate()
 })
+
+async function btnCreate() {
+
+    await post(doctor);
+    await fetchData()
+    await filterSearch()
+    render(cardsData)
+}
 
 function ucFirst(str) {
     if (!str) return str;
@@ -42,8 +52,8 @@ function clear() {
 
 }
 
-function post(doctor) {
-    fetch("https://ajax.test-danit.com/api/v2/cards", {
+async function post(doctor) {
+    await fetch("https://ajax.test-danit.com/api/v2/cards", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -65,8 +75,7 @@ function post(doctor) {
     })
         .then(response => response.json())
         .then(response => {
-            console.log(response);
-            console.log(response.doctor);
+
             clear();
         });
 }

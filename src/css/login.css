@@ -48,10 +48,15 @@
 
 .login-box .user-box input:focus~label,
 .login-box .user-box input:valid~label {
+
     top: -20px;
     left: 0;
     color: #0D7377;
     font-size: 12px;
+}
+
+.login-box .user-box input:focus {
+    focus: none;
 }
 
 .login-box form a {

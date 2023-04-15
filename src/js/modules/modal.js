@@ -3,6 +3,18 @@ export class Modal {
         this.id = optional.id;
     }
 
+    loginForm() {
+        let container = document.createElement('div');
+        container.classList.add("login-box")
+        let containerHtml = ` 
+        <button class="login-form-btn-cancel"><img src="./img/cancel (1).svg" alt=""></button>
+        <h2>Login</h2>
+        `
+
+        container.innerHTML = containerHtml;
+        document.body.appendChild(container);
+        return container
+    }
 
 
 

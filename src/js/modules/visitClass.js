@@ -38,10 +38,34 @@ export class Visit extends Modal {
     }
 
 
+    loginForm() {
+        let fncLogin = super.loginForm()
+
+        let content = `<form>
+            <div class="user-box">
+                <input type="text" name="username" id='username' required="" autocomplete="off">
+                <label>Username</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="password" id="password" required="">
+                <label>Password</label>
+            </div>
+            <a href="#" class="sub">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+            </a>
+        </form>`
+
+        fncLogin.insertAdjacentHTML('beforeend', content);
+        console.log(fncLogin.innerHTML);
+    }
+
 
     formCreate() {
         let fncCreate = super.formCreateEdit()
-        let container = fncCreate.children[0]
         let content = ` <form action="#" class="form-box">
         <div class="create-form-select-container">
             <select name="doctor" id="doctor" required="required">
@@ -78,12 +102,8 @@ export class Visit extends Modal {
         </div>
     </form>`
 
-        container.insertAdjacentHTML('beforeend', content);
-
-        console.log(fncCreate);
+        fncCreate.children[0].insertAdjacentHTML('beforeend', content);
     }
 
 }
 
-
-let kok = new Visit(fetchData()).formCreate()
