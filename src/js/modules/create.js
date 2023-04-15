@@ -16,6 +16,8 @@ const disease = document.getElementById('disease');
 const age = document.getElementById('age');
 const date = document.getElementById('date');
 
+console.dir(doctor);
+
 btnAdd.addEventListener('click', (event) => {
     event.preventDefault();
     post(doctor);
@@ -32,9 +34,12 @@ function clear() {
         input.value = '';
     })
     const selects = form.querySelectorAll('select');
-    selects.forEach(select => {
-        select.value = " ";
-    })
+
+    selects[0].value = "Dentist";
+    selects[1].value = "hight";
+    selects[2].value = "open";
+
+
 }
 
 function post(doctor) {

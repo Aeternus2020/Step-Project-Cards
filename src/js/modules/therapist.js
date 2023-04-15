@@ -1,6 +1,6 @@
-import { Modal } from "./modal.js"
+import { Visit } from "./visitClass.js"
 
-export class visitTherapist extends Modal {
+export class visitTherapist extends Visit {
     constructor(optional) {
         super(optional)
         this.age = optional.age
