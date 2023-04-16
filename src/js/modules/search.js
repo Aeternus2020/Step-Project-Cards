@@ -126,5 +126,3 @@ async function filterSearch() {
     }
     render(filterData);
 }
-    render(filterData)
-  }

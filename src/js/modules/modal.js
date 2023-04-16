@@ -1,6 +1,5 @@
 export class Modal {
     constructor(optional) {
-        // this.id = optional.id;
     }
 
     loginForm() {

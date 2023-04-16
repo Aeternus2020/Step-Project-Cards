@@ -4,7 +4,7 @@ import { render } from "./script.js";
 import { filterSearch } from "./search.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
-mport {clearInputs} from "./search.js"
+import {clearInputs} from "./search.js"
 
 export function foundBtn() {
     pulseButton.addEventListener('click', () => {
@@ -53,9 +53,8 @@ function found() {
     })
     
     async function btnCreate() {
+        await post(doctor);
         await fetchData()
-        await filterSearch()
-        render(cardsData)
     }
     
     clearBtn.addEventListener('click', (event) => {
@@ -110,5 +109,12 @@ function writeInputToObject() {
                 body: JSON.stringify(formObj)
             })
             .then(response => response.json())
+            .then(response => {
+                clear();
+                clearInputs();    
+                let Newcard = [];      
+                Newcard.push(response);  
+                render(Newcard);      
+            })
             .catch(() => console.log('Error'));
     }
