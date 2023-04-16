@@ -116,5 +116,5 @@ export async function filterSearch() {
             '<h2 class="search-result">No results</h2>'
         );
     }
-    render(filterData)
+    render(filterData);
 }

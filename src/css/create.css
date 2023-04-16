@@ -21,19 +21,10 @@
     justify-content: space-around;
 }
 
-/*.create-form-background {
-    display: none;
-    background-color: rgba(0, 110, 88, 0.1);
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    height: 100vh;
-}*/
-
 .create-box {
     position: relative;
     width: 500px;
-    height: 720px;
+    height: 800px;
     margin: 0 auto;
     background-color: #323232;
     border-radius: 30px

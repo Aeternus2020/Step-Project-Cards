@@ -3,23 +3,20 @@ import { visitCardiologist } from "./cardiolog.js"
 import { visitTherapist } from "./therapist.js"
 import { visitDentist } from "./dentist.js";
 import { del } from "./delete.js";
+import { token } from "./fetchGet.js";
+import { edit } from "./edit.js";
+
 
 export function render(arrCardData) {
-    
-    // let users = await getData("22272608 - 2570 - 4723 - a573 - 9e9451138488");
     arrCardData.forEach((user) => {
         if (user.doctor == 'Dentist') {
             let test = new visitDentist(user).addDentistCard();
-            //return user;
         }
         else if (user.doctor == 'Cardiologist') {
             let test = new visitCardiologist(user).addCardiologistCard();
-           // return user;
         } else if (user.doctor == 'Therapist') {
             let test = new visitTherapist(user).addTherapistCard();
-          //  return user;
         } else {
-            console.log(`Карточка з цим айді:"${user.id}", не підходить під категорії лікарів`);
             fetch(`https://ajax.test-danit.com/api/v2/cards/${user.id}`, {
                 method: 'DELETE',
                 headers: {
@@ -73,4 +70,5 @@ export function render(arrCardData) {
         });
     });
     del();
+    edit();
 }

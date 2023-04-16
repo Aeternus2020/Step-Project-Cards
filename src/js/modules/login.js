@@ -1,34 +1,42 @@
 
-const username = document.getElementById("username");
-const password = document.getElementById("password");
 export const btnLogin = document.querySelector('.login');
 export const cardsHolder = document.querySelector('.cards-holder');
-export const loginBox = document.querySelector('.login-box');
 export const pulseButton = document.querySelector('.pulse-button');
 export const filterContainer = document.querySelector('.field-search');
-
-document.querySelector('.login-form-btn-cancel').addEventListener('click', (event) => {
-  loginBox.style.display = 'none';
-});
+import { NewModal } from "./visitClass.js";
+import { Modal } from "./modal.js";
+import { logVal } from "./checkLogin.js";
 
 btnLogin.addEventListener('click', () => {
-  if ((btnLogin.value = 'Login')) {
-    document.querySelector('.vacuum').style.display = 'none';
-    loginBox.style.display = 'block';
-    username.value = '';
-    password.value = '';
-    logout();
-  } else if ((btnLogin.value = 'Logout')) {
-    loginBox.style.display = 'none';
-  }
+  const background = new Modal;
+  background.loginForm();
+  const log = new NewModal;
+  log.loginForm();
+  logVal();
+  check();
+  document.querySelector('.login-form-btn-cancel').addEventListener('click', ()=>{
+    document.querySelector('.login-box').remove();
+  })
 });
 
-export function login() {
+function check() {
+  if (btnLogin.value = 'Login') {
+    document.querySelector('.vacuum').style.display = 'none';
+    logout();
+  } else if ((btnLogin.value = 'Logout')) {
+    document.querySelector('.login-box').remove();
+  }
+}
+export function hide() {
   btnLogin.value = 'Logout';
-  loginBox.style.display = 'none';
   cardsHolder.style.display = 'block';
   pulseButton.style.display = 'block';
   filterContainer.style.display = 'flex';
+}
+
+export function login() {
+  hide();
+  document.querySelector('.login-box').remove();
 }
 
 export function logout() {

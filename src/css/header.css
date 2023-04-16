@@ -1,4 +1,3 @@
-/*----/*/
 
 header {
     background-color: #323232;
@@ -110,7 +109,5 @@ header {
 }
 
 .login:hover {
-
-    /*background-position: 65px 5px;*/
     text-indent: 20px;
 }

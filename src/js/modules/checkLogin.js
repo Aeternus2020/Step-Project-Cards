@@ -1,6 +1,7 @@
 import { login } from "./login.js";
 import { logout } from "./login.js";
 import { foundBtn } from "./create.js";
+import { edit } from "./edit.js";
 
 
 // const email = "Taisiya.zhdan@gmail.com";
@@ -59,8 +60,10 @@ class User {
 
 
 //логін і валідація
-let submitInp = document.querySelector(".sub");
-submitInp.addEventListener("click", checkUserLogIn);
+export function logVal () {
+  let submitInp = document.querySelector(".sub");
+  submitInp.addEventListener("click", checkUserLogIn);
+}
 
 async function checkUserLogIn() {
    
@@ -78,5 +81,4 @@ async function checkUserLogIn() {
             document.getElementById("password").value = "";
     }
     foundBtn();
-  
 }    
