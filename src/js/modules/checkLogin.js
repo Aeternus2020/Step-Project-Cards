@@ -1,5 +1,7 @@
 import { login } from "./login.js";
 import { logout } from "./login.js";
+import { foundBtn } from "./create.js";
+import { edit } from "./edit.js";
 
 
 // const email = "Taisiya.zhdan@gmail.com";
@@ -8,7 +10,6 @@ import { logout } from "./login.js";
 
 // повторне отримання токену після реєстрації
 async function getToken(username, password) {
-    console.log('getToken');
   const data = await fetch("https://ajax.test-danit.com/api/v2/cards/login", {
     method: "POST",
     headers: {
@@ -23,15 +24,13 @@ async function getToken(username, password) {
 
   if (res === "Incorrect username or password") {
       
-     alert(res);
+    alert(res);
       return false;
   } else {
       localStorage.setItem("token", res);
-      console.log(res);
       return true;
   }
 
-  
 }
 
 
@@ -62,8 +61,10 @@ class User {
 
 
 //логін і валідація
-let submitInp = document.querySelector(".sub");
-submitInp.addEventListener("click", checkUserLogIn);
+export function logVal () {
+  let submitInp = document.querySelector(".sub");
+  submitInp.addEventListener("click", checkUserLogIn);
+}
  
 document.querySelector('.login-box').addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
@@ -87,6 +88,5 @@ async function checkUserLogIn() {
             document.getElementById("username").value = "";
             document.getElementById("password").value = "";
     }
-    
-  
+    foundBtn();
 }    
