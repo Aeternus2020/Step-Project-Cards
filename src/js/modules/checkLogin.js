@@ -64,13 +64,13 @@ class User {
 export function logVal () {
   let submitInp = document.querySelector(".sub");
   submitInp.addEventListener("click", checkUserLogIn);
-}
- 
-document.querySelector('.login-box').addEventListener("keydown", function (event) {
+  document.querySelector('.login-box').addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       checkUserLogIn();
     }
   });
+}
+ 
         
 
 

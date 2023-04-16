@@ -44,8 +44,6 @@ function found() {
     const btnCansel = document.querySelector('.form-btn-cancel');
     const btnAdd = document.querySelector('.add');
     
-    let cardsData = JSON.parse(localStorage.getItem("cardsData"));
-    
     btnAdd.addEventListener('click', (event) => {
         event.preventDefault();
         btnCreate();
@@ -53,8 +51,7 @@ function found() {
     })
     
     async function btnCreate() {
-        await post(doctor);
-        await fetchData()
+        await fetchData();
     }
     
     clearBtn.addEventListener('click', (event) => {
@@ -109,12 +106,5 @@ function writeInputToObject() {
                 body: JSON.stringify(formObj)
             })
             .then(response => response.json())
-            .then(response => {
-                clear();
-                clearInputs();    
-                let Newcard = [];      
-                Newcard.push(response);  
-                render(Newcard);      
-            })
             .catch(() => console.log('Error'));
     }
