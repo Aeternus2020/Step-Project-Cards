@@ -95,6 +95,7 @@ searchInp.oninput = (event) => {
 
 
 async function filterSearch() {
+  cardsData = JSON.parse(localStorage.getItem("cardsData"));
   let filterData = [];
   document.querySelector(".cards-holder").innerHTML = "";//div для карточек
   cards.innerHTML = ""; // div для no results

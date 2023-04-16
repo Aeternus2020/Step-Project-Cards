@@ -1,5 +1,5 @@
 import { pulseButton, createBox, login, logout } from "./login.js";
-import { token } from "./fetchGet.js";
+import { fetchData, token } from "./fetchGet.js";
 import { render } from "./script.js";
 import {clearInputs} from "./search.js"  //імпорт з мого файлу
 const clearBtn = document.querySelector('.clear');
@@ -18,19 +18,20 @@ const disease = document.getElementById('disease');
 const age = document.getElementById('age');
 const date = document.getElementById('date');
 
-let cardsData = JSON.parse(localStorage.getItem("cardsData"));
+let cardsData = JSON.parse(localStorage.getItem("cardsData")); // если не используется надо убрать
 
 btnAdd.addEventListener('click', (event) => {
     event.preventDefault();
     btnCreate()
+    
 })
 
 async function btnCreate() {
 
     await post(doctor);
     await fetchData()
-    await filterSearch()
-    render(cardsData)
+    // await filterSearch() //надо убрать
+    // render(cardsData)   // надо убрать
 }
 
 function ucFirst(str) {
@@ -83,6 +84,7 @@ async function post(doctor) {
             let Newcard = [];             // пустий масив
             Newcard.push(response);  // додати результат в масив
             render(Newcard);       // показати картку
+           
         });
     
 }
