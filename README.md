@@ -35,5 +35,5 @@ https://gitlab.com/DoroshenkoDan/step-prj-cards-tda
 
 ## email and password for token
 
-email = "Taisiya.zhdan@gmail.com";
-pass = "Cards2911";
+email = Taisiya.zhdan@gmail.com
+pass = Cards2911
