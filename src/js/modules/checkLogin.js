@@ -64,6 +64,14 @@ class User {
 //логін і валідація
 let submitInp = document.querySelector(".sub");
 submitInp.addEventListener("click", checkUserLogIn);
+ 
+document.querySelector('.login-box').addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      checkUserLogIn();
+    }
+  });
+        
+
 
 async function checkUserLogIn() {
    
@@ -72,9 +80,8 @@ async function checkUserLogIn() {
         let obj = new User(inpEmail, inpPassword);
        
         if (obj.validatePassword() === true && obj.validateEmail() === true) {
-           
-            let responce = await getToken(inpEmail, inpPassword); 
-            responce ? login() : logout(); 
+          let responce = await getToken(inpEmail, inpPassword);
+          responce ? login() : logout();
         } else {
             alert("Incorrect format username or password");
             document.getElementById("username").value = "";
