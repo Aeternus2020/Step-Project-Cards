@@ -36,7 +36,6 @@ export function edit() {
             disease.style.display = isCardiologist ? "block" : "none";
         });
             document.querySelector('.form-btn-cancel').addEventListener('click', (event)=> {
-                event.preventDefault();
                 clear(form);
                 createBox.remove();
                 hide();
@@ -109,5 +108,10 @@ function pushEdit(formObj, id) {
             body: JSON.stringify(formObj)
         })
         .then(response => response.json())
+        .then(response => {
+            clear(form);
+            createBox.remove();
+            hide();}
+        )
         .catch(() => console.log('Error'));
 }

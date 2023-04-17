@@ -1,10 +1,9 @@
 import { pulseButton, logout, hide } from "./login.js";
 import { token, fetchData } from "./fetchGet.js";
-import { render } from "./script.js";
-import { filterSearch } from "./search.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
-import {clearInputs} from "./search.js"
+import { render } from "./script.js";
+import { clearInputs } from "./search.js";
 
 export function foundBtn() {
     pulseButton.addEventListener('click', () => {
@@ -46,8 +45,8 @@ function found() {
     
     btnAdd.addEventListener('click', (event) => {
         event.preventDefault();
-        btnCreate();
         writeInputToObject();
+        btnCreate();
     })
     
     async function btnCreate() {
@@ -106,5 +105,15 @@ function writeInputToObject() {
                 body: JSON.stringify(formObj)
             })
             .then(response => response.json())
+            .then(response => {
+                const form = document.querySelector(".form-box");
+                const createBox = document.querySelector('.create-box');
+                clear(form);
+                createBox.remove();
+                hide();   
+                let Newcard = []     
+                Newcard.push(response) 
+                render(Newcard)})
             .catch(() => console.log('Error'));
     }
+
