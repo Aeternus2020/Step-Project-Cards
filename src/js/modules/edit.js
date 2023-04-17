@@ -1,9 +1,10 @@
-import { token } from "./fetchGet.js";
+import { token, fetchData } from "./fetchGet.js";
 import { logout, hide} from "./login.js";
 import { clear} from "./create.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
-import { filterSearch } from "./search.js";
+import { render } from "./script.js";
+
 
 export function edit() {
     let editBtn = document.querySelectorAll('.btn-edit');
@@ -47,11 +48,15 @@ export function edit() {
             document.getElementById('push').addEventListener('click', (event)=> {
                 event.preventDefault();
                 writeInputToObject();
-                createBox.remove();
                 hide();
+                btnCreate();
             })
         })
     })
+}
+
+async function btnCreate() {
+    await fetchData();
 }
 
 //Функция получения карточки по id
@@ -109,9 +114,14 @@ function pushEdit(formObj, id) {
         })
         .then(response => response.json())
         .then(response => {
+            const form = document.querySelector(".form-box");
+            const createBox = document.querySelector('.create-box');
             clear(form);
             createBox.remove();
-            hide();}
+            hide();
+            let Newcard = []     
+            Newcard.push(response) 
+            render(Newcard)}
         )
         .catch(() => console.log('Error'));
 }
