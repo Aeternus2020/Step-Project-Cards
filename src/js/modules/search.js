@@ -90,7 +90,7 @@ searchInp.oninput = (event) => {
 
 
 
-async function filterSearch() {
+export async function filterSearch() {
   cardsData = JSON.parse(localStorage.getItem("cardsData"));
   let filterData = [];
   document.querySelector(".cards-holder").innerHTML = "";//div для карточек

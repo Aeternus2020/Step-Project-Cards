@@ -3,6 +3,7 @@ import { logout, hide} from "./login.js";
 import { clear} from "./create.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
+import { filterSearch } from "./search.js";
 
 export function edit() {
     let editBtn = document.querySelectorAll('.btn-edit');
@@ -90,6 +91,8 @@ function writeInputToObject() {
       const value = input.value; 
       if (input.value) {
         (input.type === "number") ? outputObj[name] = +value : outputObj[name] = value;
+      } else {
+        outputObj[name] = "Інформація відсутня";
       }
     });
     pushEdit(outputObj, outputObj.id);
