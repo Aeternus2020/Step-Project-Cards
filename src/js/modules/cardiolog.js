@@ -1,4 +1,3 @@
-import { Modal } from "./modal.js"
 import { Visit } from "./visitClass.js"
 
 export class visitCardiologist extends Visit {

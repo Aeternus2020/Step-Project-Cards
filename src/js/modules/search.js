@@ -1,7 +1,4 @@
-import { Modal } from "./modal.js";
-import { visitCardiologist } from "./cardiolog.js";
-import { visitDentist } from "./dentist.js";
-import { visitTherapist } from "./therapist.js";
+
 import { render } from "./script.js";
 import { fetchData } from "./fetchGet.js";
 fetchData()
@@ -12,15 +9,14 @@ let cardsData = JSON.parse(localStorage.getItem("cardsData"));
 const clearBtn = document.querySelector(".clear__btn");
 clearBtn.addEventListener("click", clearData);
 function clearData(event) {
- 
-  event.preventDefault();
-  let filterInputs = document.querySelectorAll(".inp-clear");
-  filterInputs.forEach((el) => {
-    el.value = "";
-    document.querySelector(".cards-holder").innerHTML = "";
-    cards.innerHTML = "";
-    searchValue = "";
-  });
+    event.preventDefault();
+    let filterInputs = document.querySelectorAll(".inp-clear");
+    filterInputs.forEach((el) => {
+        el.value = "";
+        document.querySelector(".cards-holder").innerHTML = "";
+        cards.innerHTML = "";
+        searchValue = "";
+    });
 
 }
 
@@ -128,5 +124,5 @@ async function filterSearch() {
         '<h2 class="search-result">No results</h2>'
       );
     }
-    render(filterData)
-  }
+    render(filterData);
+}
