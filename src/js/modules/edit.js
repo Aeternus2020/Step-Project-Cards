@@ -16,30 +16,10 @@ export function edit() {
             const editMain = new NewModal;
             editMain.formEdit();
             get(cardid);
-          
-            const form = document.querySelector(".form-box");
-            const createBox = document.querySelector('.create-box');
-            const doctor = document.querySelector('.doctor');
-            const pressure = document.querySelector('.pressure');
-            const index = document.querySelector('.index');
-            const disease = document. querySelector('.disease');
-            const age = document. querySelector('.age');
-            const date = document.querySelector('.date'); 
-      
-        doctor.addEventListener("change", () => {
-            const isCardiologist = doctor.value === "Cardiologist";
-            const isDentist = doctor.value === "Dentist";
-            const isTherapist = doctor.value === "Therapist";
-            
-            
-            date.style.display = isDentist ? "block" : "none";
-            age.style.display = isCardiologist || isTherapist ? "block" : "none";
-            index.style.display = isCardiologist ? "block" : "none";
-            pressure.style.display = isCardiologist ? "block" : "none";
-            disease.style.display = isCardiologist ? "block" : "none";
-            
-        });
-            document.querySelector('.form-btn-cancel').addEventListener('click', (event)=> {
+            let createBox = document.querySelector('.create-box');
+            let form = document.querySelector(".form-box");
+            formSelect(form);
+            document.querySelector('.form-btn-cancel').addEventListener('click', ()=> {
                 clear(form);
                 createBox.remove();
                 hide();
@@ -58,6 +38,12 @@ export function edit() {
     })
 }
 
+export function formSelect(form) {
+  let doctor = form.querySelector('.doctor');
+  doctor.addEventListener("change", ()=> {
+  select(doctor.value, form)})
+}
+
 //Функция получения карточки по id
 function get(id) {
     fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
@@ -73,16 +59,31 @@ function get(id) {
         })
 }
 
+
+export function select(value, form) {
+  const isCardiologist = value === "Cardiologist";
+  const isDentist = value === "Dentist";
+  const isTherapist = value === "Therapist"; 
+
+  form.querySelector('.date').style.display = isDentist ? "block" : "none";
+  form. querySelector('.age').style.display = isCardiologist || isTherapist ? "block" : "none";
+  form.querySelector('.index').style.display = isCardiologist ? "block" : "none";
+  form.querySelector('.pressure').style.display = isCardiologist ? "block" : "none";
+  form.querySelector('.disease').style.display = isCardiologist ? "block" : "none";
+}
+
 //Функция заполнения формы
 function fillInputsFromObject(obj) {
+  const form = document.querySelector(".form-box");
     for (const [key, value] of Object.entries(obj)) {
         const input = document.querySelector(`[name="${key}"]`);
         if (input) {
-          
-        input.value = value;
-      } 
+            input.value = value;
+            select(value, form);
+            }
     }
   }
+
 
  //Функция сбора информации из инпутов
 function writeInputToObject() {
