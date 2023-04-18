@@ -4,7 +4,10 @@ import { render } from "./script.js";
 import { filterSearch } from "./search.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
-import {clearInputs} from "./search.js"
+import { clearInputs } from "./search.js";
+import { login } from "./login.js";
+
+
 
 export function foundBtn() {
     pulseButton.addEventListener('click', () => {
@@ -101,10 +104,23 @@ function writeInputToObject() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token()}`
             },
                 body: JSON.stringify(formObj)
             })
             .then(response => response.json())
-            .catch(() => console.log('Error'));
+            .then(response => {
+
+            
+                document.querySelector(".create-box").remove();
+                hide(); // закриває модалку
+                clearInputs();// очищаються інпути фільтрації, якщо в них уже були дані
+                console.log('1');
+                let Newcard = [];             // пустий масив
+                console.log("2");
+                Newcard.push(response);  // додати результат в масив
+                console.log(Newcard);
+            render(Newcard);       // показати картку
+        })
+           .catch(() => console.log('Error',Error));
     }

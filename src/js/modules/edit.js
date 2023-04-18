@@ -1,9 +1,10 @@
 import { token } from "./fetchGet.js";
 import { logout, hide} from "./login.js";
-import { clear} from "./create.js";
+import { clear, foundBtn} from "./create.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
 import { filterSearch } from "./search.js";
+import { fetchData } from "./fetchGet.js"; //
 
 export function edit() {
     let editBtn = document.querySelectorAll('.btn-edit');
@@ -16,6 +17,7 @@ export function edit() {
             const editMain = new NewModal;
             editMain.formEdit();
             get(cardid);
+          
             const form = document.querySelector(".form-box");
             const createBox = document.querySelector('.create-box');
             const doctor = document.querySelector('.doctor');
@@ -23,17 +25,19 @@ export function edit() {
             const index = document.querySelector('.index');
             const disease = document. querySelector('.disease');
             const age = document. querySelector('.age');
-            const date = document.querySelector('.date');        
+            const date = document.querySelector('.date'); 
+        
         doctor.addEventListener("change", () => {
             const isCardiologist = doctor.value === "Cardiologist";
             const isDentist = doctor.value === "Dentist";
             const isTherapist = doctor.value === "Therapist";
-        
+           
             date.style.display = isDentist ? "block" : "none";
             age.style.display = isCardiologist || isTherapist ? "block" : "none";
             index.style.display = isCardiologist ? "block" : "none";
             pressure.style.display = isCardiologist ? "block" : "none";
             disease.style.display = isCardiologist ? "block" : "none";
+            
         });
             document.querySelector('.form-btn-cancel').addEventListener('click', (event)=> {
                 event.preventDefault();
@@ -50,6 +54,7 @@ export function edit() {
                 writeInputToObject();
                 createBox.remove();
                 hide();
+                
             })
         })
     })
@@ -61,7 +66,7 @@ function get(id) {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token()}`
         }
     })
         .then(response => response.json())
@@ -70,11 +75,15 @@ function get(id) {
         })
 }
 
+
+
+
 //Функция заполнения формы
 function fillInputsFromObject(obj) {
     for (const [key, value] of Object.entries(obj)) {
-      const input = document.querySelector(`[name="${key}"]`);
-      if (input) {
+        const input = document.querySelector(`[name="${key}"]`);
+        if (input) {
+          
         input.value = value;
       } 
     }
@@ -99,15 +108,19 @@ function writeInputToObject() {
   }
 
 //Функция отправки изменений
-function pushEdit(formObj, id) {
+async function pushEdit(formObj, id) {
+ 
     fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-            body: JSON.stringify(formObj)
-        })
-        .then(response => response.json())
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token()}`,
+      },
+      body: JSON.stringify(formObj),
+    })
+  
+       .then(response => response.json())
         .catch(() => console.log('Error'));
+    await fetchData();
+    await filterSearch();
 }

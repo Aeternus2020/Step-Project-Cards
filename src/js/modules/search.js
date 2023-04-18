@@ -1,9 +1,7 @@
 
 import { render } from "./script.js";
-import { fetchData } from "./fetchGet.js";
-fetchData()
+// import { fetchData } from "./fetchGet.js";
 
-let cardsData = JSON.parse(localStorage.getItem("cardsData"));
 
 
 const clearBtn = document.querySelector(".clear__btn");
@@ -89,9 +87,10 @@ searchInp.oninput = (event) => {
 };
 
 
-
+// пошук  по дропдаунах та текстовому полю
 export async function filterSearch() {
-  cardsData = JSON.parse(localStorage.getItem("cardsData"));
+  
+  let cardsData = JSON.parse(localStorage.getItem("cardsData"));
   let filterData = [];
   document.querySelector(".cards-holder").innerHTML = "";//div для карточек
   cards.innerHTML = ""; // div для no results
@@ -115,6 +114,7 @@ export async function filterSearch() {
         rgxStatus.test(card.status)
       ) {
         filterData.push(card);
+        console.log(card);
         count++;
       }
     });

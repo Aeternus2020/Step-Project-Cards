@@ -1,12 +1,12 @@
 
-export const token = localStorage.getItem("token");
+//export const token = localStorage.getItem("token");
 
 export async function fetchData() {
     const data = await fetch("https://ajax.test-danit.com/api/v2/cards", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token()}`,
         },
     });
     const result = await data.json();
@@ -15,3 +15,5 @@ export async function fetchData() {
     localStorage.setItem("cardsData", JSON.stringify(result));
 
 }
+
+export function token() { return localStorage.getItem("token"); };

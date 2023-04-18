@@ -20,7 +20,7 @@ export function render(arrCardData) {
             fetch(`https://ajax.test-danit.com/api/v2/cards/${user.id}`, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${token()}`
                 },
             })
         }
