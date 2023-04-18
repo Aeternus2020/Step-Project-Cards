@@ -23,9 +23,11 @@ export function fillInputsFromObject(obj) {
     const form = document.querySelector(".form-box");
     for (const [key, value] of Object.entries(obj)) {
         const input = document.querySelector(`[name="${key}"]`);
+        if (key === "doctor") {
+            select(value, form);
+        }
         if (input) {
             input.value = value;
-            select(value, form);
             }
     }
 }
@@ -67,7 +69,7 @@ export async function pushEdit(formObj, id) {
         },
         body: JSON.stringify(formObj),
     })
-    
+
         .then(response => response.json())
         .catch(() => console.log('Error'));
     await fetchData();
@@ -105,10 +107,9 @@ export function formSelect(form) {
 export function select(value, form) {
     const isCardiologist = value === "Cardiologist";
     const isDentist = value === "Dentist";
-    const isTherapist = value === "Therapist"; 
 
     form.querySelector('.date').style.display = isDentist ? "block" : "none";
-    form. querySelector('.age').style.display = isCardiologist || isTherapist ? "block" : "none";
+    form. querySelector('.age').style.display = isCardiologist || isDentist ? "block" : "none";
     form.querySelector('.index').style.display = isCardiologist ? "block" : "none";
     form.querySelector('.pressure').style.display = isCardiologist ? "block" : "none";
     form.querySelector('.disease').style.display = isCardiologist ? "block" : "none";
