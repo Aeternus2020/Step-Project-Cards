@@ -1,13 +1,9 @@
 import { pulseButton, logout, hide } from "./login.js";
 import { token, fetchData } from "./fetchGet.js";
 import { render } from "./script.js";
-import { filterSearch } from "./search.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
 import { clearInputs } from "./search.js";
-import { login } from "./login.js";
-
-
 
 export function foundBtn() {
     pulseButton.addEventListener('click', () => {
@@ -110,19 +106,13 @@ function writeInputToObject() {
             })
             .then(response => response.json())
             .then(response => {
-
-
-            
                 document.querySelector(".create-box").remove();
-                hide(); // закриває модалку
-                clearInputs();// очищаються інпути фільтрації, якщо в них уже були дані
-                console.log('1');
-                let Newcard = [];             // пустий масив
-                console.log("2");
-                Newcard.push(response);  // додати результат в масив
-                console.log(Newcard);
-            render(Newcard);       // показати картку
+                hide(); 
+                clearInputs();
+                let Newcard = [];  
+                Newcard.push(response);
+                render(Newcard); 
         })
-           .catch(() => console.log('Error',Error));
+                .catch(() => console.log('Error',Error));
     }
 

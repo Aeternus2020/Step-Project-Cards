@@ -1,9 +1,9 @@
 import { token, fetchData } from "./fetchGet.js";
 import { logout, hide} from "./login.js";
-import { clear, foundBtn} from "./create.js";
+import { clear} from "./create.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
-
+import { filterSearch } from "./search.js";
 
 export function edit() {
     let editBtn = document.querySelectorAll('.btn-edit');
@@ -25,14 +25,14 @@ export function edit() {
             const disease = document. querySelector('.disease');
             const age = document. querySelector('.age');
             const date = document.querySelector('.date'); 
-        
+      
         doctor.addEventListener("change", () => {
             const isCardiologist = doctor.value === "Cardiologist";
             const isDentist = doctor.value === "Dentist";
             const isTherapist = doctor.value === "Therapist";
             
             
-              date.style.display = isDentist ? "block" : "none";
+            date.style.display = isDentist ? "block" : "none";
             age.style.display = isCardiologist || isTherapist ? "block" : "none";
             index.style.display = isCardiologist ? "block" : "none";
             pressure.style.display = isCardiologist ? "block" : "none";
@@ -52,12 +52,11 @@ export function edit() {
                 event.preventDefault();
                 writeInputToObject();
                 hide();
-                
+                createBox.remove();
             })
         })
     })
 }
-
 
 //Функция получения карточки по id
 function get(id) {
@@ -74,9 +73,6 @@ function get(id) {
         })
 }
 
-
-
-
 //Функция заполнения формы
 function fillInputsFromObject(obj) {
     for (const [key, value] of Object.entries(obj)) {
@@ -87,7 +83,6 @@ function fillInputsFromObject(obj) {
       } 
     }
   }
-
 
  //Функция сбора информации из инпутов
 function writeInputToObject() {
@@ -108,7 +103,6 @@ function writeInputToObject() {
 
 //Функция отправки изменений
 async function pushEdit(formObj, id) {
- 
     fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
       method: "PUT",
       headers: {
@@ -118,7 +112,7 @@ async function pushEdit(formObj, id) {
       body: JSON.stringify(formObj),
     })
   
-       .then(response => response.json())
+        .then(response => response.json())
         .catch(() => console.log('Error'));
     await fetchData();
     await filterSearch();

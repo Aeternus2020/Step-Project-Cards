@@ -37,11 +37,11 @@ export class Visit extends Modal {
     }
 }
 
-
 export class NewModal {
     constructor() {
 }
 
+//Отрисовать форму изменения карточки
 formCreate() {
     let content = ` <form action="#" class="form-box">
     <div class="create-form-select-container">
@@ -80,7 +80,7 @@ formCreate() {
 </form>`
     document.querySelector('.create-box').insertAdjacentHTML('beforeend', content);
 }
-
+    //Отрисовать форму создания карточки
     formEdit() {
     let cont = document.createElement('div');
     cont.classList.add("login-box");
@@ -125,6 +125,7 @@ formCreate() {
         document.querySelector('.create-box').insertAdjacentHTML('beforeend', formm);
 }
 
+//Отрисовать форму логина
 loginForm() {
     let content = `<form>
         <div class="user-box">
@@ -143,7 +144,6 @@ loginForm() {
             Submit
         </a>
     </form>`
-
     document.querySelector('.login-box').insertAdjacentHTML('beforeend', content);
 }
 }

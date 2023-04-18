@@ -1,7 +1,8 @@
 export class Modal {
-    constructor(optional) {
+    constructor() {
     }
 
+    //Отрисовать заголовок формы логина
     loginForm() {
         let container = document.createElement('div');
         container.classList.add("login-box")
@@ -9,12 +10,12 @@ export class Modal {
         <button class="login-form-btn-cancel"><img src="./img/cancel (1).svg" alt=""></button>
         <h2>Login</h2>
         `
-
         container.innerHTML = containerHtml;
         document.body.appendChild(container);
         return container
     }
 
+    //Отрисовать заголовок формы изменения карточки
     formEdit() {
         let container = document.createElement('div');
         container.classList.add("create-form-background")
@@ -25,12 +26,12 @@ export class Modal {
         <h2>Edit Card</h2>
         </div>
         `
-
         container.innerHTML = containerHtml;
         document.body.appendChild(container);
         return container
     }
     
+    //Отрисовать заголовок формы создания карточки
     formCreateEdit() {
         let container = document.createElement('div');
         container.classList.add("create-form-background")
@@ -40,7 +41,6 @@ export class Modal {
         <h2>Create new Card</h2>
         </div>
         `
-
         container.innerHTML = containerHtml;
         document.body.appendChild(container);
         return container

@@ -114,7 +114,6 @@ export async function filterSearch() {
         rgxStatus.test(card.status)
       ) {
         filterData.push(card);
-        console.log(card);
         count++;
       }
     });
