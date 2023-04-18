@@ -1,13 +1,16 @@
 import { pulseButton, logout, hide } from "./login.js";
 import { token, fetchData } from "./fetchGet.js";
-import { render } from "./script.js";
-import { filterSearch } from "./search.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
+<<<<<<< HEAD
 import { clearInputs } from "./search.js";
 import { login } from "./login.js";
 
 
+=======
+import { render } from "./script.js";
+import { clearInputs } from "./search.js";
+>>>>>>> 0cd6f28d4f69e4f0e6686677db5c6a1b0ea32cb2
 
 export function foundBtn() {
     pulseButton.addEventListener('click', () => {
@@ -49,8 +52,8 @@ function found() {
     
     btnAdd.addEventListener('click', (event) => {
         event.preventDefault();
-        btnCreate();
         writeInputToObject();
+        btnCreate();
     })
     
     async function btnCreate() {
@@ -110,6 +113,7 @@ function writeInputToObject() {
             })
             .then(response => response.json())
             .then(response => {
+<<<<<<< HEAD
 
             
                 document.querySelector(".create-box").remove();
@@ -123,4 +127,16 @@ function writeInputToObject() {
             render(Newcard);       // показати картку
         })
            .catch(() => console.log('Error',Error));
+=======
+                const form = document.querySelector(".form-box");
+                const createBox = document.querySelector('.create-box');
+                clear(form);
+                createBox.remove();
+                hide();   
+                let Newcard = []     
+                Newcard.push(response) 
+                render(Newcard)})
+            .catch(() => console.log('Error'));
+>>>>>>> 0cd6f28d4f69e4f0e6686677db5c6a1b0ea32cb2
     }
+

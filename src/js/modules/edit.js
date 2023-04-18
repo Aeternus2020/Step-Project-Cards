@@ -1,10 +1,15 @@
-import { token } from "./fetchGet.js";
+import { token, fetchData } from "./fetchGet.js";
 import { logout, hide} from "./login.js";
 import { clear, foundBtn} from "./create.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
+<<<<<<< HEAD
 import { filterSearch } from "./search.js";
 import { fetchData } from "./fetchGet.js"; //
+=======
+import { render } from "./script.js";
+
+>>>>>>> 0cd6f28d4f69e4f0e6686677db5c6a1b0ea32cb2
 
 export function edit() {
     let editBtn = document.querySelectorAll('.btn-edit');
@@ -40,7 +45,6 @@ export function edit() {
             
         });
             document.querySelector('.form-btn-cancel').addEventListener('click', (event)=> {
-                event.preventDefault();
                 clear(form);
                 createBox.remove();
                 hide();
@@ -52,12 +56,19 @@ export function edit() {
             document.getElementById('push').addEventListener('click', (event)=> {
                 event.preventDefault();
                 writeInputToObject();
-                createBox.remove();
                 hide();
+<<<<<<< HEAD
                 
+=======
+                btnCreate();
+>>>>>>> 0cd6f28d4f69e4f0e6686677db5c6a1b0ea32cb2
             })
         })
     })
+}
+
+async function btnCreate() {
+    await fetchData();
 }
 
 //Функция получения карточки по id
@@ -111,6 +122,7 @@ function writeInputToObject() {
 async function pushEdit(formObj, id) {
  
     fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
+<<<<<<< HEAD
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -120,6 +132,26 @@ async function pushEdit(formObj, id) {
     })
   
        .then(response => response.json())
+=======
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+            body: JSON.stringify(formObj)
+        })
+        .then(response => response.json())
+        .then(response => {
+            const form = document.querySelector(".form-box");
+            const createBox = document.querySelector('.create-box');
+            clear(form);
+            createBox.remove();
+            hide();
+            let Newcard = []     
+            Newcard.push(response) 
+            render(Newcard)}
+        )
+>>>>>>> 0cd6f28d4f69e4f0e6686677db5c6a1b0ea32cb2
         .catch(() => console.log('Error'));
     await fetchData();
     await filterSearch();
