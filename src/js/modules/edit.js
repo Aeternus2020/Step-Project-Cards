@@ -30,8 +30,9 @@ export function edit() {
             const isCardiologist = doctor.value === "Cardiologist";
             const isDentist = doctor.value === "Dentist";
             const isTherapist = doctor.value === "Therapist";
-           
-            date.style.display = isDentist ? "block" : "none";
+            
+            
+              date.style.display = isDentist ? "block" : "none";
             age.style.display = isCardiologist || isTherapist ? "block" : "none";
             index.style.display = isCardiologist ? "block" : "none";
             pressure.style.display = isCardiologist ? "block" : "none";
