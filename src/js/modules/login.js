@@ -19,7 +19,7 @@ btnLogin.addEventListener('click', () => {
   })
 });
 
-function check() {
+ export function check() {
   if (btnLogin.value = 'Login') {
     document.querySelector('.vacuum').style.display = 'none';
     logout();

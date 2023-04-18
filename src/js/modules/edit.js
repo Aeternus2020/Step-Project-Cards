@@ -3,8 +3,7 @@ import { logout, hide} from "./login.js";
 import { clear, foundBtn} from "./create.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
-import { filterSearch } from "./search.js";
-import { fetchData } from "./fetchGet.js"; //
+
 
 export function edit() {
     let editBtn = document.querySelectorAll('.btn-edit');
@@ -58,9 +57,6 @@ export function edit() {
     })
 }
 
-// async function btnCreate() {
-//     await fetchData();
-// }
 
 //Функция получения карточки по id
 function get(id) {
