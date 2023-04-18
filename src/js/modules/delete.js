@@ -14,7 +14,6 @@ export async function del() {
                     'Authorization': `Bearer ${token()}`
                 },
             })
-            
             card.innerHTML = `<div class="card">Картка під номером: ${cardid} видалена</div>`;
             setTimeout(() => {
                 card.remove();

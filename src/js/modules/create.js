@@ -66,6 +66,7 @@ function found() {
     })
 }
 
+//Функция очистки  формы
 export function clear(form) {
     const inputs = form.querySelectorAll('input');
     inputs.forEach(input => {
@@ -94,7 +95,7 @@ function writeInputToObject() {
     pushChange(outputObj);
   }
 
-    //Функция отправки карточки
+//Функция отправки карточки
     function pushChange(formObj) {
         fetch(`https://ajax.test-danit.com/api/v2/cards`, {
             method: 'POST',

@@ -65,7 +65,7 @@ formCreate() {
         <input type="text" name="description" class="description user-box" placeholder="Короткий опис візиту">
         <input type="text" name="name" class="name user-box" placeholder="ПІБ">
         <input type="date" name="date" class="date user-box" placeholder="Дата останнього відвідування">
-        <input type="number" name="pressure" class="pressure user-box" placeholder="Звичайний тиск">
+        <input type="text" name="pressure" class="pressure user-box" placeholder="Звичайний тиск">
         <input type="number" name="index" class="index user-box" placeholder="Індекс маси тіла">
         <input type="text" name="disease" class="disease user-box" placeholder="Перенесені захворювання">
         <input type="number" name="age" class="age user-box" placeholder="Вік">
@@ -108,7 +108,7 @@ formCreate() {
         <input type="text" name="description" class="description user-box" placeholder="Короткий опис візиту">
         <input type="text" name="name" class="name user-box" placeholder="ПІБ">
         <input type="date" name="date" class="date user-box" placeholder="Дата останнього відвідування">
-        <input type="number" name="pressure" class="pressure user-box" placeholder="Звичайний тиск">
+        <input type="text" name="pressure" class="pressure user-box" placeholder="Звичайний тиск">
         <input type="number" name="index" class="index user-box" placeholder="Індекс маси тіла">
         <input type="text" name="disease" class="disease user-box" placeholder="Перенесені захворювання">
         <input type="number" name="age" class="age user-box" placeholder="Вік">
