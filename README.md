@@ -29,9 +29,13 @@ Create, delete and edit cards: Olena;
 
 Filter and search: Taisiia;
 
+gitHub Pages: Taisiia;
+
 ## Посилання на проект
 
 https://gitlab.com/DoroshenkoDan/step-prj-cards-tda
+
+https://taisiiazhdanovych.github.io/stepProject-Cards-TZ-OH-DD/
 
 ## email and password for token
 
