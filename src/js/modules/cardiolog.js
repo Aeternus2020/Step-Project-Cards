@@ -14,7 +14,7 @@ export class visitCardiologist extends Visit {
         const variables = [
             { name: 'Вік', value: this.age },
             { name: 'ІндексМассиТіла', value: this.index },
-            { name: 'disease', value: this.disease },
+            { name: 'Захворювання', value: this.disease },
             { name: 'Тиск', value: this.pressure }
         ];
         variables.forEach(variable => {

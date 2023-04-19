@@ -1,4 +1,3 @@
-
 export const btnLogin = document.querySelector('.login');
 export const cardsHolder = document.querySelector('.cards-holder');
 export const pulseButton = document.querySelector('.pulse-button');
@@ -19,7 +18,8 @@ btnLogin.addEventListener('click', () => {
   })
 });
 
- export function check() {
+//Функция проверки на логинизацию по кнопке
+export function check() {
   if (btnLogin.value = 'Login') {
     document.querySelector('.vacuum').style.display = 'none';
     logout();
@@ -27,6 +27,8 @@ btnLogin.addEventListener('click', () => {
     document.querySelector('.login-box').remove();
   }
 }
+
+//Функция скрытия блоков при открытии модального окна
 export function hide() {
   btnLogin.value = 'Logout';
   cardsHolder.style.display = 'block';
@@ -34,11 +36,13 @@ export function hide() {
   filterContainer.style.display = 'flex';
 }
 
+//Функция скрытия контента при входе в аккаунт
 export function login() {
   hide();
   document.querySelector('.login-box').remove();
 }
 
+//Функция открытия контента при выходе из аккаунта
 export function logout() {
   cardsHolder.style.display = 'none';
   pulseButton.style.display = 'none';

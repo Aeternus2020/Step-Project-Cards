@@ -1,7 +1,7 @@
 import { token } from "./fetchGet.js";
 import { fetchData } from "./fetchGet.js";
 
-
+//Функция удаления карточки
 export async function del() {
     let del = document.querySelectorAll('.card-container-btn-cancel');
     del.forEach(elem => {
@@ -14,7 +14,6 @@ export async function del() {
                     'Authorization': `Bearer ${token()}`
                 },
             })
-            
             card.innerHTML = `<div class="card">Картка під номером: ${cardid} видалена</div>`;
             setTimeout(() => {
                 card.remove();
@@ -22,7 +21,5 @@ export async function del() {
             
         })
     })
-     
 await fetchData();
-    
 }
