@@ -107,9 +107,10 @@ export function formSelect(form) {
 export function select(value, form) {
     const isCardiologist = value === "Cardiologist";
     const isDentist = value === "Dentist";
+    const isTherapist = value === "Therapist";
 
     form.querySelector('.date').style.display = isDentist ? "block" : "none";
-    form. querySelector('.age').style.display = isCardiologist || isDentist ? "block" : "none";
+    form. querySelector('.age').style.display = isCardiologist || isTherapist ? "block" : "none";
     form.querySelector('.index').style.display = isCardiologist ? "block" : "none";
     form.querySelector('.pressure').style.display = isCardiologist ? "block" : "none";
     form.querySelector('.disease').style.display = isCardiologist ? "block" : "none";
