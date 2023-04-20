@@ -7,15 +7,17 @@ import { Modal } from "./modal.js";
 import { logVal } from "./checkLogin.js";
 
 btnLogin.addEventListener('click', () => {
-  const background = new Modal;
-  background.loginForm();
-  const log = new NewModal;
-  log.loginForm();
-  logVal();
-  check();
-  document.querySelector('.login-form-btn-cancel').addEventListener('click', ()=>{
+  if (!document.querySelector('.login-box')) {
+    const background = new Modal;
+    background.loginForm();
+    const log = new NewModal;
+    log.loginForm();
+    logVal();
+    check();
+    document.querySelector('.login-form-btn-cancel').addEventListener('click', ()=>{
     document.querySelector('.login-box').remove();
-  })
+    })
+  }
 });
 
 //Функция проверки на логинизацию по кнопке

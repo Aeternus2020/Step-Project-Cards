@@ -1,14 +1,10 @@
 import { login } from "./login.js";
 import { logout } from "./login.js";
 import { foundBtn } from "./create.js";
-import { edit } from "./edit.js";
 import { fetchData } from "./fetchGet.js";
-
-
 
 // const email = "Taisiya.zhdan@gmail.com";
 // const pass = "Cards2911";
-
 
 // повторне отримання токену після реєстрації
 async function getToken(username, password) {
@@ -73,16 +69,13 @@ export function logVal () {
     }
   });
 }
- 
-        
-
 
 async function checkUserLogIn() {
   localStorage.clear();
         let inpEmail = document.getElementById("username").value;
         let inpPassword = document.getElementById("password").value;
         let obj = new User(inpEmail, inpPassword);
-       
+
         if (obj.validatePassword() === true && obj.validateEmail() === true) {
           let responce = await getToken(inpEmail, inpPassword);
           responce ? login() : logout();

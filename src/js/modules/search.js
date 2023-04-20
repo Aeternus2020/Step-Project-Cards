@@ -1,8 +1,4 @@
-
 import { render } from "./script.js";
-// import { fetchData } from "./fetchGet.js";
-
-
 
 const clearBtn = document.querySelector(".clear__btn");
 clearBtn.addEventListener("click", clearData);
@@ -18,9 +14,8 @@ function clearData(event) {
 
 }
 
-
-export function clearInputs() 
-{let filterInputs = document.querySelectorAll(".inp-clear");
+export function clearInputs() {
+  let filterInputs = document.querySelectorAll(".inp-clear");
   filterInputs.forEach((el) => {
     el.value = "";
     document.querySelector(".cards-holder").innerHTML = "";
@@ -29,10 +24,7 @@ export function clearInputs()
   }) }
 const cards = document.getElementById("cards");
 
-
-
 // Зв'язані дропдауни 
-
 document.querySelectorAll(".dropdown").forEach(function (dropdownWrapper) {
     const dpopList = dropdownWrapper.querySelector(".list");
     const dropItems = dpopList.querySelectorAll(".dpopdown-item");
@@ -86,7 +78,6 @@ searchInp.oninput = (event) => {
     filterSearch();
 };
 
-
 // пошук  по дропдаунах та текстовому полю
 export async function filterSearch() {
   
@@ -105,7 +96,6 @@ export async function filterSearch() {
     if (inpStatus.value === "All") {
       rgxStatus = RegExp("", "i");
     }
-
 
     cardsData.forEach((card) => {
       if (

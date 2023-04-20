@@ -1,7 +1,10 @@
-import { filterSearch, clearInputs } from "./search.js";
+import { filterSearch } from "./search.js";
 import { token, fetchData } from "./fetchGet.js";
-import { render } from "./script.js";
-import { hide } from "./login.js";
+
+export async function update() {
+    await fetchData();
+    await filterSearch();
+}
 
 //Функция получения карточки по id
 export function get(id) {
@@ -69,15 +72,12 @@ export async function pushEdit(formObj, id) {
         },
         body: JSON.stringify(formObj),
     })
-
         .then(response => response.json())
         .catch(() => console.log('Error'));
-    await fetchData();
-    await filterSearch();
 }
 
 //Функция отправки новой карточки
-export function pushChange(formObj) {
+export async function pushChange(formObj) {
     fetch(`https://ajax.test-danit.com/api/v2/cards`, {
         method: 'POST',
         headers: {
@@ -87,15 +87,7 @@ export function pushChange(formObj) {
             body: JSON.stringify(formObj)
         })
         .then(response => response.json())
-        .then(response => {
-            document.querySelector(".create-box").remove();
-            hide(); 
-            clearInputs();
-            let Newcard = [];  
-            Newcard.push(response);
-            render(Newcard); 
-    })
-            .catch(() => console.log('Error',Error));
+        .catch(() => console.log('Error',Error));
 }
 
 export function formSelect(form) {
@@ -107,10 +99,9 @@ export function formSelect(form) {
 export function select(value, form) {
     const isCardiologist = value === "Cardiologist";
     const isDentist = value === "Dentist";
-    const isTherapist = value === "Therapist";
 
     form.querySelector('.date').style.display = isDentist ? "block" : "none";
-    form. querySelector('.age').style.display = isCardiologist || isTherapist ? "block" : "none";
+    form. querySelector('.age').style.display = isCardiologist || isDentist ? "block" : "none";
     form.querySelector('.index').style.display = isCardiologist ? "block" : "none";
     form.querySelector('.pressure').style.display = isCardiologist ? "block" : "none";
     form.querySelector('.disease').style.display = isCardiologist ? "block" : "none";
