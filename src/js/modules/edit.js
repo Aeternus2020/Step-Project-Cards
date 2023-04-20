@@ -20,7 +20,6 @@ export function edit() {
             let createBox = document.querySelector('.create-box');
             document.getElementById('push').addEventListener('click', (event)=> {
                 event.preventDefault();
-                // document.querySelector(".cards-holder").innerHTML = "";
                 let outputObj = {};
                 writeInputToObject(outputObj);
                 pushEdit(outputObj, outputObj.id);
