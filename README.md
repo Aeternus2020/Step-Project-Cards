@@ -35,7 +35,7 @@ gitHub Pages: Taisiia;
 
 https://gitlab.com/DoroshenkoDan/step-prj-cards-tda
 
-https://taisiiazhdanovych.github.io/stepProject-Cards-TZ-OH-DD/
+https://taisiiazhdanovych.github.io/stepProjectCards-TZ-OH-DD/
 
 ## email and password for token
 
