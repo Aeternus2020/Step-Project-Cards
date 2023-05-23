@@ -41,7 +41,7 @@ export function hide() {
 //Функция скрытия контента при входе в аккаунт
 export function login() {
   hide();
-  document.querySelector('.login-box').remove();
+  document.querySelector('.login-box')?.remove();
 }
 
 //Функция открытия контента при выходе из аккаунта
@@ -49,5 +49,9 @@ export function logout() {
   cardsHolder.style.display = 'none';
   pulseButton.style.display = 'none';
   filterContainer.style.display = 'none';
+  localStorage.removeItem("token");
 }
-logout();
+if (localStorage.getItem("token")) { login() } else {
+  logout();
+}
+// logout();

@@ -2,6 +2,7 @@ import { filterSearch } from "./search.js";
 import { token, fetchData } from "./fetchGet.js";
 
 export async function update() {
+    console.log("what");
     await fetchData();
     await filterSearch();
 }
