@@ -50,8 +50,8 @@ export function logout() {
   pulseButton.style.display = 'none';
   filterContainer.style.display = 'none';
   localStorage.removeItem("token");
-}
-if (localStorage.getItem("token")) { login() } else {
+}                                                      
+if (localStorage.getItem("token")) { login() } else {   // пофіксила перезавантаження сторінки
   logout();
 }
 // logout();
