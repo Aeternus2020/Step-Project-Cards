@@ -1,4 +1,5 @@
 import { Modal } from "./modal.js";
+import { validationForm } from "./functions.js";
 
 export class Visit extends Modal {
     constructor(optional) {

@@ -49,9 +49,8 @@ export function logout() {
   cardsHolder.style.display = 'none';
   pulseButton.style.display = 'none';
   filterContainer.style.display = 'none';
-  localStorage.removeItem("token");
 }                                                      
-if (localStorage.getItem("token")) { login() } else {   // пофіксила перезавантаження сторінки
+if (localStorage.getItem("token")) { login() } else { 
   logout();
 }
-// logout();
+logout();

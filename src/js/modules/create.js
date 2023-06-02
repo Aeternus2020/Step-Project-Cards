@@ -1,11 +1,12 @@
-import { pulseButton, logout, hide } from "./login.js";
+import { pulseButton, logout, login} from "./login.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
 import { clearInputs } from "./search.js";
-import { formSelect, writeInputToObject, clear, pushChange, update } from "./functions.js";
+import { formSelect, writeInputToObject, clear, pushChange, update} from "./functions.js";
 
 export function foundBtn() {
-    pulseButton.addEventListener('click', () => {
+    pulseButton.addEventListener('click', (event) => {
+        event.preventDefault();
         logout();
         const mod = new Modal;
         mod.formCreateEdit();
@@ -26,7 +27,7 @@ export function foundBtn() {
             clearInputs();
             update();
             createBox.remove();
-            hide();
+            login()
         })
         document.querySelector('.clear').addEventListener('click', (event) => {
             event.preventDefault();
@@ -35,6 +36,7 @@ export function foundBtn() {
         document.querySelector('.form-btn-cancel').addEventListener('click', () => {
             clear(form);
             createBox.remove();
+            login()
         })
     })
 }

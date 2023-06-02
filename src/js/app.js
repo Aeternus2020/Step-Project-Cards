@@ -1,5 +1,3 @@
-
-// functionSearch();
 import { render } from "./modules/script.js";
 import { Visit } from "./modules/visitClass.js";
 import * as create from "./modules/create.js";

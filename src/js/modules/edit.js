@@ -7,7 +7,8 @@ import { get, writeInputToObject, clear, pushEdit, formSelect, update } from "./
 export function edit() {
     let editBtn = document.querySelectorAll('.btn-edit');
     editBtn.forEach(elem => {
-        elem.addEventListener('click', () => {
+        elem.addEventListener('click', (event) => {
+            event.preventDefault();
             logout();
             let cardid = elem.parentNode.parentElement.id;
             const edit = new Modal;
@@ -32,6 +33,7 @@ export function edit() {
                 clear(form);
                 createBox.remove();
                 hide();
+                event.preventDefault();
             })
             document.querySelector('.clear').addEventListener('click', (event)=> {
                 clear(form);

@@ -16,13 +16,13 @@ export async function del() {
             })
             card.innerHTML = `<div class="card">Картка під номером: ${cardid} видалена</div>`;
             setTimeout(() => {
-             
+            
                 const parseCards = JSON.parse(localStorage.getItem("cardsData"));    //поправила, щоб не було нового фетчзапиту при видаленні стрічка 20-26
                 const filterCards = parseCards.filter(card => {
-                  
+                
                     return card.id !== +cardid
                 });
-               
+            
                 localStorage.setItem("cardsData", JSON.stringify(filterCards));
                 card.remove();
             }, 2000);

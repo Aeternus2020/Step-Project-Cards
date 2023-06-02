@@ -1,9 +1,7 @@
 import { filterSearch } from "./search.js";
-import { token, fetchData } from "./fetchGet.js";
+import {token} from "./fetchGet.js";
 
 export async function update() {
-    console.log("what");
-    await fetchData();
     await filterSearch();
 }
 
@@ -46,7 +44,7 @@ export function fillInputsFromObject(obj) {
         if (input.value) {
         (input.type === "number") ? outputObj[name] = +value : outputObj[name] = value;
         } else {
-        outputObj[name] = "Інформація відсутня";
+        // outputObj[name] = "Інформація відсутня";
         }
     });
     }
@@ -102,7 +100,7 @@ export function select(value, form) {
     const isDentist = value === "Dentist";
 
     form.querySelector('.date').style.display = isDentist ? "block" : "none";
-    form. querySelector('.age').style.display = isCardiologist || isDentist ? "block" : "none";
+    form. querySelector('.age').style.display = isDentist ? "none":"block" ;
     form.querySelector('.index').style.display = isCardiologist ? "block" : "none";
     form.querySelector('.pressure').style.display = isCardiologist ? "block" : "none";
     form.querySelector('.disease').style.display = isCardiologist ? "block" : "none";
