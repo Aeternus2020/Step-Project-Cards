@@ -37,15 +37,12 @@ export function fillInputsFromObject(obj) {
  //Функция сбора информации из инпутов
     export function writeInputToObject(outputObj) {
     const inputElements = document.querySelector('.form-box').querySelectorAll('.user-box');
-
     inputElements.forEach(input => {
         const name = input.getAttribute('name');
         const value = input.value; 
         if (input.value) {
         (input.type === "number") ? outputObj[name] = +value : outputObj[name] = value;
-        } else {
-        // outputObj[name] = "Інформація відсутня";
-        }
+        } 
     });
     }
 
@@ -62,7 +59,7 @@ export function clear(form) {
 }
 
 //Функция отправки изменений
-export async function pushEdit(formObj, id) {
+export async function pushEdit(formObj, id) { 
     fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
         method: "PUT",
         headers: {
@@ -72,6 +69,16 @@ export async function pushEdit(formObj, id) {
         body: JSON.stringify(formObj),
     })
         .then(response => response.json())
+        .then(response => {
+            const parseCards = JSON.parse(localStorage.getItem("cardsData"));
+            const cardIndex = parseCards.findIndex(card => card.id === id);
+            if (cardIndex !== -1) {
+                parseCards.splice(cardIndex, 1);
+            }
+            parseCards.push(response);
+            localStorage.setItem("cardsData", JSON.stringify(parseCards));
+            update();
+        })
         .catch(() => console.log('Error'));
 }
 
@@ -86,6 +93,12 @@ export async function pushChange(formObj) {
             body: JSON.stringify(formObj)
         })
         .then(response => response.json())
+        .then(response => {
+            const parseCards = JSON.parse(localStorage.getItem("cardsData")); 
+            parseCards.push(response);
+            localStorage.setItem("cardsData", JSON.stringify(parseCards));
+            update();
+        })
         .catch(() => console.log('Error',Error));
 }
 

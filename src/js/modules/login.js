@@ -5,6 +5,7 @@ export const filterContainer = document.querySelector('.field-search');
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
 import { logVal } from "./checkLogin.js";
+import { foundBtn } from "./create.js";
 
 btnLogin.addEventListener('click', () => {
   if (!document.querySelector('.login-box')) {
@@ -14,8 +15,10 @@ btnLogin.addEventListener('click', () => {
     log.loginForm();
     logVal();
     check();
+    document.querySelector('.vacuum').style.display = 'none';
     document.querySelector('.login-form-btn-cancel').addEventListener('click', ()=>{
     document.querySelector('.login-box').remove();
+    document.querySelector('.vacuum').style.display = 'block';
     })
   }
 });
@@ -23,8 +26,8 @@ btnLogin.addEventListener('click', () => {
 //Функция проверки на логинизацию по кнопке
 export function check() {
   if (btnLogin.value = 'Login') {
-    document.querySelector('.vacuum').style.display = 'none';
     logout();
+    localStorage.removeItem("token")
   } else if ((btnLogin.value = 'Logout')) {
     document.querySelector('.login-box').remove();
   }
@@ -42,6 +45,7 @@ export function hide() {
 export function login() {
   hide();
   document.querySelector('.login-box')?.remove();
+  document.querySelector('.vacuum').style.display = 'none';
 }
 
 //Функция открытия контента при выходе из аккаунта
@@ -49,8 +53,8 @@ export function logout() {
   cardsHolder.style.display = 'none';
   pulseButton.style.display = 'none';
   filterContainer.style.display = 'none';
-}                                                      
-if (localStorage.getItem("token")) { login() } else { 
-  logout();
-}
-logout();
+  document.querySelector('.vacuum').style.display = 'block';
+}  
+
+(localStorage.getItem("token")) ? login() : logout();
+foundBtn();

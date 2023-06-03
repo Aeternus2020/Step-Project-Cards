@@ -1,4 +1,4 @@
-import { logout, hide} from "./login.js";
+import { logout, login} from "./login.js";
 import { NewModal } from "./visitClass.js";
 import { Modal } from "./modal.js";
 import { clearInputs } from "./search.js";
@@ -18,26 +18,32 @@ export function edit() {
             get(cardid);
             let form = document.querySelector(".form-box");
             formSelect(form);
-            let createBox = document.querySelector('.create-box');
+            let createBox = document.querySelector('.create-form-background');
             document.getElementById('push').addEventListener('click', (event)=> {
+                let createFormInputsWrapper = document.querySelector(".create-form-input-container");
+                let createFormInputs = Array.from(createFormInputsWrapper.querySelectorAll("input"));
+            
+                if (createFormInputs.some(input => input.localName === 'input' && input.style.display !== 'none' && input.value === "")) {
+                    alert("Заполните все поля формы.");
+                    event.preventDefault();
+                } else {
+                    let outputObj = {};
+                    writeInputToObject(outputObj);
+                    pushEdit(outputObj, outputObj.id);
+                    clearInputs();
+                    update();
+                    createBox.remove();
+                    login();
+                }
+            })
+            document.querySelector('.clear').addEventListener('click', (event)=> {
                 event.preventDefault();
-                let outputObj = {};
-                writeInputToObject(outputObj);
-                pushEdit(outputObj, outputObj.id);
-                clearInputs();
-                update();
-                createBox.remove();
-                hide();
+                clear(form);
             })
             document.querySelector('.form-btn-cancel').addEventListener('click', ()=> {
                 clear(form);
                 createBox.remove();
-                hide();
-                event.preventDefault();
-            })
-            document.querySelector('.clear').addEventListener('click', (event)=> {
-                clear(form);
-                event.preventDefault();
+                login()
             })
         })
     })

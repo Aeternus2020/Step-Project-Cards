@@ -1,5 +1,4 @@
 import { token } from "./fetchGet.js";
-import { fetchData } from "./fetchGet.js";
 
 //Функция удаления карточки
 export async function del() {

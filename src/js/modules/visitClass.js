@@ -1,5 +1,4 @@
 import { Modal } from "./modal.js";
-import { validationForm } from "./functions.js";
 
 export class Visit extends Modal {
     constructor(optional) {
@@ -105,15 +104,15 @@ formCreate() {
         </select>
     </div>
     <div class="create-form-input-container">
-        <input type="text" name="title" class="title user-box" placeholder="Мета візиту">
-        <input type="text" name="description" class="description user-box" placeholder="Короткий опис візиту">
-        <input type="text" name="name" class="name user-box" placeholder="ПІБ">
-        <input type="date" name="date" class="date user-box" placeholder="Дата останнього відвідування">
-        <input type="text" name="pressure" class="pressure user-box" placeholder="Звичайний тиск">
-        <input type="number" name="index" class="index user-box" placeholder="Індекс маси тіла">
-        <input type="text" name="disease" class="disease user-box" placeholder="Перенесені захворювання">
-        <input type="number" name="age" class="age user-box" placeholder="Вік">
-        <input type="number" name="id" class="id user-box" style="display: none">
+        <input required type="text" name="title" class="title user-box" placeholder="Мета візиту">
+        <input required="required" type="text" name="description" class="description user-box" placeholder="Короткий опис візиту">
+        <input required="required" type="text" name="name" class="name user-box" placeholder="ПІБ">
+        <input required="required" type="date" name="date" class="date user-box" placeholder="Дата останнього відвідування">
+        <input required="required" type="text" name="pressure" class="pressure user-box" placeholder="Звичайний тиск">
+        <input required="required" type="number" name="index" class="index user-box" placeholder="Індекс маси тіла">
+        <input required="required" type="text" name="disease" class="disease user-box" placeholder="Перенесені захворювання">
+        <input required="required" type="number" name="age" class="age user-box" placeholder="Вік">
+        <input required="required" type="number" name="id" class="id user-box" style="display: none">
     </div>
     <div class="create-form-btn-container">
         <button id="push" class="btn-add-form-create">
@@ -130,11 +129,11 @@ formCreate() {
 loginForm() {
     let content = `<form>
         <div class="user-box">
-            <input type="text" name="username" id='username' required="" autocomplete="off">
+            <input type="username" name="username" id='username' required="required" autocomplete="off">
             <label>Username</label>
         </div>
         <div class="user-box">
-            <input type="password" name="password" id="password" required="">
+            <input type="password" name="password" id="password" required="required" autocomplete="off">
             <label>Password</label>
         </div>
         <a href="#" class="sub">
