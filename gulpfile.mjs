@@ -1,4 +1,5 @@
 import gulp from "gulp";
+import pkg from 'gulp';
 import { path } from "./gulp/config/path.js";
 import { plugins } from "./gulp/config/plugin.js";
 
@@ -7,6 +8,8 @@ global.app = {
     gulp: gulp,
     plugins: plugins,
 };
+
+const { series } = pkg;
 
 import { copy } from "./gulp/tasks/copy.js";
 import { reset } from "./gulp/tasks/reset.js";
@@ -25,7 +28,9 @@ function watcher() {
 }
 
 const mainTasks = gulp.parallel(copy, html, scss, js, images);
+const dev = gulp.parallel(watcher, server);
+const build = gulp.series(reset, mainTasks);
 
-const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
-
-gulp.task("default", dev);
+gulp.task("default", series(build, dev));
+gulp.task("dev", dev);
+gulp.task("build", build);
