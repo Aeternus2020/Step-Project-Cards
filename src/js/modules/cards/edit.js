@@ -1,8 +1,7 @@
-import { logout, login} from "./login.js";
-import { NewModal } from "./visitClass.js";
-import { Modal } from "./modal.js";
-import { clearInputs } from "./search.js";
-import { get, writeInputToObject, clear, pushEdit, formSelect, update } from "./functions.js";
+import { logout, login} from "../login/login.js";
+import { Modal } from "./modalCards.js";
+import { clearInputs } from "../search.js";
+import { get, writeInputToObject, clear, pushEdit, formSelect, update } from "../functions.js";
 
 export function edit() {
     let editBtn = document.querySelectorAll('.btn-edit');
@@ -12,9 +11,8 @@ export function edit() {
             logout();
             let cardid = elem.parentNode.parentElement.id;
             const edit = new Modal;
-            edit.formEdit();
-            const editMain = new NewModal;
-            editMain.formEdit();
+            edit.formHeaderEdit();
+            edit.formMainEdit();
             get(cardid);
             let form = document.querySelector(".form-box");
             formSelect(form);

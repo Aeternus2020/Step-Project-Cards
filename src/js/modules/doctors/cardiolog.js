@@ -1,5 +1,5 @@
-import { Visit } from "./visitClass.js"
-
+import { Visit } from "../modalVisit.js"
+;
 export class visitCardiologist extends Visit {
     constructor(optional) {
         super(optional)

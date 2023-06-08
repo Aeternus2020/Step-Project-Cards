@@ -1,4 +1,4 @@
-import { token } from "./fetchGet.js";
+import { token } from "../fetchGet.js";
 
 //Функция удаления карточки
 export async function del() {
@@ -16,7 +16,7 @@ export async function del() {
             card.innerHTML = `<div class="card">Картка під номером: ${cardid} видалена</div>`;
             setTimeout(() => {
             
-                const parseCards = JSON.parse(localStorage.getItem("cardsData"));    //поправила, щоб не було нового фетчзапиту при видаленні стрічка 20-26
+                const parseCards = JSON.parse(localStorage.getItem("cardsData")); 
                 const filterCards = parseCards.filter(card => {
                 
                     return card.id !== +cardid
@@ -28,7 +28,4 @@ export async function del() {
             
         })
     })
- 
-    
-// await fetchData();
 }

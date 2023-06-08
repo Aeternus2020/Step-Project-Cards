@@ -1,4 +1,4 @@
-import { render } from "./script.js";
+import { render } from "./renderCards.js";
 
 const clearBtn = document.querySelector(".clear__btn");
 clearBtn.addEventListener("click", clearData);
@@ -80,8 +80,8 @@ searchInp.oninput = (event) => {
 
 // пошук  по дропдаунах та текстовому полю
 export async function filterSearch() {
-  
   let cardsData = JSON.parse(localStorage.getItem("cardsData"));
+
   let filterData = [];
   document.querySelector(".cards-holder").innerHTML = "";//div для карточек
   cards.innerHTML = ""; // div для no results

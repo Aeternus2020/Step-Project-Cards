@@ -1,10 +1,7 @@
 import { login } from "./login.js";
 import { logout } from "./login.js";
-import { foundBtn } from "./create.js";
-import { fetchData } from "./fetchGet.js";
-
-// const email = "Taisiya.zhdan@gmail.com";
-// const pass = "Cards2911";
+import { foundBtn } from "../cards/create.js";
+import { fetchData } from "../fetchGet.js";
 
 // повторне отримання токену після реєстрації
 async function getToken(username, password) {
@@ -61,7 +58,7 @@ class User {
 
 //логін і валідація
 export function logVal () {
-  let submitInp = document.querySelector(".sub");
+  let submitInp = document.querySelector(".subLog");
   submitInp.addEventListener("click", checkUserLogIn);
   document.querySelector('.login-box').addEventListener("keydown", function (event) {
     if (event.key === "Enter") {

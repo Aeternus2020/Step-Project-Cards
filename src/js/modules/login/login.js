@@ -2,17 +2,15 @@ export const btnLogin = document.querySelector('.login');
 export const cardsHolder = document.querySelector('.cards-holder');
 export const pulseButton = document.querySelector('.pulse-button');
 export const filterContainer = document.querySelector('.field-search');
-import { NewModal } from "./visitClass.js";
-import { Modal } from "./modal.js";
+import { modalLogin } from "./loginForm.js";
 import { logVal } from "./checkLogin.js";
-import { foundBtn } from "./create.js";
+import { foundBtn } from "../cards/create.js";
 
 btnLogin.addEventListener('click', () => {
   if (!document.querySelector('.login-box')) {
-    const background = new Modal;
+    const background = new modalLogin;
+    background.loginFormHeader();
     background.loginForm();
-    const log = new NewModal;
-    log.loginForm();
     logVal();
     check();
     document.querySelector('.vacuum').style.display = 'none';

@@ -1,4 +1,4 @@
-import { Visit } from "./visitClass.js"
+import { Visit } from "../modalVisit.js";
 
 export class visitTherapist extends Visit {
     constructor(optional) {

@@ -1,10 +1,10 @@
 
-import { visitCardiologist } from "./cardiolog.js"
-import { visitTherapist } from "./therapist.js"
-import { visitDentist } from "./dentist.js";
-import { del } from "./delete.js";
+import { visitCardiologist } from "./doctors/cardiolog.js";
+import { visitTherapist } from "./doctors/therapist.js";
+import { visitDentist } from "./doctors/dentist.js";
+import { del } from "./cards/delete.js";
 import { token } from "./fetchGet.js";
-import { edit } from "./edit.js";
+import { edit } from "./cards/edit.js";
 
 export function render(arrCardData) {
     arrCardData.forEach((user) => {
@@ -71,3 +71,5 @@ export function render(arrCardData) {
     del();
     edit();
 }
+
+(localStorage.getItem("token")) ? render(localStorage.getItem("token")) : null;

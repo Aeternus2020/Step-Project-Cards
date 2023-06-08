@@ -1,17 +1,15 @@
-import { pulseButton, logout, login} from "./login.js";
-import { NewModal } from "./visitClass.js";
-import { Modal } from "./modal.js";
-import { clearInputs } from "./search.js";
-import { formSelect, writeInputToObject, clear, pushChange, update, checked} from "./functions.js";
+import { pulseButton, logout, login} from "../login/login.js";
+import { Modal } from "./modalCards.js";
+import { clearInputs } from "../search.js";
+import { formSelect, writeInputToObject, clear, pushChange, update, checked} from "../functions.js";
 
 export function foundBtn() {
     pulseButton.addEventListener('click', () => {
         logout();
         if (!document.querySelector('.create-form-background')) {
         const mod = new Modal;
-        mod.formCreateEdit();
-        const select = new NewModal;
-        select.formCreate();
+        mod.formHeaderCreate();
+        mod.formMainCreate();
         let createFormInputsWrapper = document.querySelector(".create-form-input-container");
         let createFormInputs = Array.from(createFormInputsWrapper.querySelectorAll("input"));
         const excludedInputs = createFormInputs.slice(4);
