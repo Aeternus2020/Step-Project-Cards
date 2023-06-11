@@ -1,7 +1,11 @@
-import { login } from "./login.js";
-import { logout } from "./login.js";
+import { login, show } from "./login.js";
 import { foundBtn } from "../cards/create.js";
-import { fetchData } from "../fetchGet.js";
+import { update } from "../functions.js";
+
+let errorPasword = "Password";
+let errorEmail = "Email";
+let mail;
+let password;
 
 // повторне отримання токену після реєстрації
 async function getToken(username, password) {
@@ -13,74 +17,100 @@ async function getToken(username, password) {
     body: JSON.stringify({
       email: `${username}`,
       password: `${password}`,
-    }),
+    })
   });
   const res = await data.text();
 
   if (res === "Incorrect username or password") {
       
-    alert(res);
+      document.querySelector('.form').innerHTML = res;
       return false;
   } else {
     localStorage.setItem("token", res);
-    await fetchData();
+    login();
+    show();
+    update();
       return true;
   }
-
 }
 
+async function registration(username, password) {
+  const data = await fetch("https://ajax.test-danit.com/api/cards/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: username,
+      password: password,
+    }),
+  })
+    .catch(err => console.error(err));
+    const res = await data.text();
+    localStorage.setItem("token", res);
+}
 
-// const token = localStorage.getItem("token");
+// email: "qqq@qqq.qqq"
+// password: "qqqqqqqq"
 
-
-class User {
-  constructor(email, password) {
-    this.password = password;
-    this.email = email;
-  }
-
-  validatePassword() {
-    
-    if (this.password.length >= 8) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-    validateEmail() {
+function user(email, pass)  {
     const regex = /^\S+@\S+\.\S+$/;
-    
-    return regex.test(this.email);
-  }
+    if (pass.length < 8) {
+      errorPasword = "Password must be more than 8 characters"
+    } else {
+      errorPasword = "Password";
+      password = pass;
+    }
+    if (!regex.test(email)) {
+      errorEmail = "You entered not email"
+    } else {
+      errorEmail = "Email";
+      mail = email
+    }
 }
-
-
 
 //логін і валідація
 export function logVal () {
-  let submitInp = document.querySelector(".subLog");
-  submitInp.addEventListener("click", checkUserLogIn);
-  document.querySelector('.login-box').addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      checkUserLogIn();
+  document.querySelector('#email').addEventListener("input", checkUserLogIn);
+  document.querySelector('#password').addEventListener("input", checkUserLogIn);
+  document.querySelector('.submit').addEventListener("click", function (event) {
+    if (event.target.innerText === "SUBMIT") {
+      checkSubmit(event);
     }
   });
 }
 
-async function checkUserLogIn() {
-  localStorage.clear();
-        let inpEmail = document.getElementById("username").value;
-        let inpPassword = document.getElementById("password").value;
-        let obj = new User(inpEmail, inpPassword);
+export async function checkUserLogIn() {
+  let inpEmail = document.getElementById("email").value;
+  let inpPassword = document.getElementById("password").value;
+  let labelUsername = document.querySelector('label[for="email"]');
+  let labelPassword = document.querySelector('label[for="password"]');
 
-        if (obj.validatePassword() === true && obj.validateEmail() === true) {
-          let responce = await getToken(inpEmail, inpPassword);
-          responce ? login() : logout();
-          
-        } else {
-            alert("Incorrect format username or password");
-            document.getElementById("username").value = "";
-            document.getElementById("password").value = "";
+  if (inpEmail !== '') {
+    user(inpEmail, '');
+    labelUsername.innerHTML = errorEmail;
+  }
+
+  if (inpPassword !== '') {
+    user('', inpPassword);
+    labelPassword.innerHTML = errorPasword;
+  }
+  foundBtn();
+}
+
+
+export function checkSubmit(event) {
+  user(document.getElementById("email").value, document.getElementById("password").value);
+
+  if (errorPasword === "Password" && errorEmail === "Email") {
+    if (event.target.innerText === "SUBMIT") {
+      event.target.id === "subLog" ? getToken(mail, password) : null;
     }
-    foundBtn();
-}    
+    if (event.target.innerText === "SUBMIT") {
+      event.target.id === "subReg" ? registration(mail, password) : null;
+    }
+  } else {
+    document.querySelector('label[for="password"]').innerHTML = errorPasword;
+    document.querySelector('label[for="email"]').innerHTML = errorEmail;
+  }
+}

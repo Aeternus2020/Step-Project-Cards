@@ -1,4 +1,5 @@
 import { token } from "../fetchGet.js";
+import { update } from "../functions.js";
 
 //Функция удаления карточки
 export async function del() {
@@ -11,21 +12,13 @@ export async function del() {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token()}`
-                },
+                }
             })
             card.innerHTML = `<div class="card">Картка під номером: ${cardid} видалена</div>`;
             setTimeout(() => {
-            
-                const parseCards = JSON.parse(localStorage.getItem("cardsData")); 
-                const filterCards = parseCards.filter(card => {
-                
-                    return card.id !== +cardid
-                });
-            
-                localStorage.setItem("cardsData", JSON.stringify(filterCards));
                 card.remove();
+                update();
             }, 2000);
-            
-        })
+        });
     })
 }

@@ -1,8 +1,10 @@
-import { filterSearch } from "./search.js";
-import {token} from "./fetchGet.js";
+import { checkToken } from "./renderCards.js";
+import { token } from "./fetchGet.js";
+import { fetchData } from "./fetchGet.js";
 
 export async function update() {
-    await filterSearch();
+    await fetchData();
+    checkToken();
 }
 
 //Функция получения карточки по id
@@ -53,7 +55,7 @@ export function clear(form) {
         input.value = '';
     })
     const selects = form.querySelectorAll('select');
-    selects[0].value = "Dentist";
+    selects[0].value = "Cardiologist";
     selects[1].value = "hight";
     selects[2].value = "open";
 }
@@ -69,17 +71,8 @@ export async function pushEdit(formObj, id) {
         body: JSON.stringify(formObj),
     })
         .then(response => response.json())
-        .then(response => {
-            const parseCards = JSON.parse(localStorage.getItem("cardsData"));
-            const cardIndex = parseCards.findIndex(card => card.id === id);
-            if (cardIndex !== -1) {
-                parseCards.splice(cardIndex, 1);
-            }
-            parseCards.push(response);
-            localStorage.setItem("cardsData", JSON.stringify(parseCards));
-            update();
-        })
-        .catch(() => console.log('Error'));
+        .then(update())
+        .catch(() => console.log('Error',Error));
 }
 
 //Функция отправки новой карточки
@@ -93,19 +86,15 @@ export async function pushChange(formObj) {
             body: JSON.stringify(formObj)
         })
         .then(response => response.json())
-        .then(response => {
-            const parseCards = JSON.parse(localStorage.getItem("cardsData")); 
-            parseCards.push(response);
-            localStorage.setItem("cardsData", JSON.stringify(parseCards));
-            update();
-        })
+        .then(update())
         .catch(() => console.log('Error',Error));
 }
 
 export function formSelect(form) {
     let doctor = form.querySelector('.doctor');
-    doctor.addEventListener("change", ()=> {
-    select(doctor.value, form)})
+    doctor.addEventListener("change", () => {
+        select(doctor.value, form);
+    });
 }
 
 export function select(value, form) {
@@ -113,8 +102,13 @@ export function select(value, form) {
     const isDentist = value === "Dentist";
 
     form.querySelector('.date').style.display = isDentist ? "block" : "none";
-    form. querySelector('.age').style.display = isDentist ? "none":"block" ;
+    form.querySelector('label[for="date"]').style.display = isDentist ? "block" : "none";
+    form.querySelector('.age').style.display = isDentist ? "none" : "block";
+    form.querySelector('label[for="age"]').style.display = isDentist ? "none" : "block";
     form.querySelector('.index').style.display = isCardiologist ? "block" : "none";
+    form.querySelector('label[for="index"]').style.display = isCardiologist ? "block" : "none";
     form.querySelector('.pressure').style.display = isCardiologist ? "block" : "none";
+    form.querySelector('label[for="pressure"]').style.display = isCardiologist ? "block" : "none";
     form.querySelector('.disease').style.display = isCardiologist ? "block" : "none";
+    form.querySelector('label[for="disease"]').style.display = isCardiologist ? "block" : "none";
 }

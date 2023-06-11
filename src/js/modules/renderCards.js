@@ -6,7 +6,9 @@ import { del } from "./cards/delete.js";
 import { token } from "./fetchGet.js";
 import { edit } from "./cards/edit.js";
 
+
 export function render(arrCardData) {
+    document.querySelector('.cards-holder').innerHTML = "";
     arrCardData.forEach((user) => {
         if (user.doctor == 'Dentist') {
             let test = new visitDentist(user).addDentistCard();
@@ -21,7 +23,7 @@ export function render(arrCardData) {
                 headers: {
                     'Authorization': `Bearer ${token()}`
                 },
-            })
+            });
         }
     });
 
@@ -72,4 +74,10 @@ export function render(arrCardData) {
     edit();
 }
 
-(localStorage.getItem("token")) ? render(localStorage.getItem("token")) : null;
+export function checkToken() {
+    const token = localStorage.getItem("token");
+    if (token) {
+        render(JSON.parse(localStorage.getItem("cardsData")));
+    }
+    }
+checkToken();

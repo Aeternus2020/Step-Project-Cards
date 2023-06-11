@@ -1,6 +1,4 @@
 
-// export const token = localStorage.getItem("token");
-
 export async function fetchData() {
     localStorage.removeItem("cardsData");
     const data = await fetch("https://ajax.test-danit.com/api/v2/cards", {
