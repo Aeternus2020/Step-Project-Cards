@@ -32,6 +32,7 @@ export function hide() {
   cardsHolder.style.display = 'none';
   pulseButton.style.display = 'none';
   vacuum.style.display = 'none';
+  filterContainer.style.display = 'none';
 }
 
 //Функция открытия блоков при закрытии модального окна

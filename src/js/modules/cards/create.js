@@ -1,11 +1,11 @@
-import { pulseButton, logout, login } from "../login/login.js";
+import { pulseButton, hide, login } from "../login/login.js";
 import { Modal } from "./modalCards.js";
 import { clearInputs } from "../search.js";
-import { formSelect, writeInputToObject, clear, pushChange, select } from "../functions.js";
+import { formSelect, writeInputToObject, clear, pushChange, select, update } from "../functions.js";
 
 export function foundBtn() {
     pulseButton.addEventListener('click', () => {
-      logout();
+      hide();
       if (!document.querySelector('.create-form-background')) {
         const mod = new Modal();
         mod.formHeaderCreate();
@@ -21,22 +21,29 @@ export function foundBtn() {
         document.querySelector('.add').addEventListener('click', (event) => {
           let createFormInputsWrapper = document.querySelector(".create-form-input-container");
           let createFormInputs = Array.from(createFormInputsWrapper.querySelectorAll("input"));
-
-            const inputElements = createFormInputsWrapper.querySelectorAll('input');
-            const labelElements = createFormInputsWrapper.querySelectorAll('label');
-            console.log(inputElements, labelElements)
-            inputElements.forEach(input => {
-            input.addEventListener('input', () => {
-                const inputId = input.id;
-                const correspondingLabel = Array.from(labelElements).find(label => label.getAttribute('for') === inputId);
-                if (correspondingLabel) {
-                    console.log(inputId)
+        
+          const inputElements = createFormInputsWrapper.querySelectorAll('input');
+          const labelElements = createFormInputsWrapper.querySelectorAll('label');
+          let shouldPreventDefault = false;
+        
+          inputElements.forEach(input => {
+            if (input.style.display !== 'none') {
+              const inputId = input.id;
+              const correspondingLabel = Array.from(labelElements).find(label => label.getAttribute('for') === inputId);
+              if (correspondingLabel) {
+                if (input.value === "") {
+                  correspondingLabel.innerHTML = "Fill in the form field";
+                  shouldPreventDefault = true;
+                } else {
+                  correspondingLabel.innerHTML = input.placeholder;
                 }
-            });
-            });
-
-          if (createFormInputs.some(input => input.localName === 'input' && input.style.display !== 'none' && input.value === "")) {
-            alert("Заполните все поля формы.");
+              }
+            }
+          });
+        
+          (createFormInputs.some(input => input.localName === 'input' && input.style.display !== 'none' && input.value === "")) ? shouldPreventDefault = true : null
+        
+          if (shouldPreventDefault) {
             event.preventDefault();
           } else {
             let outputObj = {};
@@ -47,6 +54,7 @@ export function foundBtn() {
             login();
           }
         });
+        
   
         document.querySelector('.clear').addEventListener('click', (event) => {
           event.preventDefault();

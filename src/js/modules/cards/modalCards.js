@@ -26,9 +26,9 @@ export class Modal {
     let formm = ` <form action="#" class="form-box">
         <div class="create-form-select-container">
             <select name="doctor" class="doctor user-box" required="required">
-                <option value="Dentist">Стоматолог</option>
-                <option value="Cardiologist">Кардіолог</option>
-                <option value="Therapist">Терапевт</option>
+                <option value="Dentist">Dentist</option>
+                <option value="Cardiologist">Cardiologist</option>
+                <option value="Therapist">Therapist</option>
             </select>
             <select name="urgency" class="urgency user-box" required="required">
                 <option value="hight">High</option>
@@ -41,31 +41,31 @@ export class Modal {
             </select>
         </div>
         <div class="create-form-input-container">
-            <label for="title">Visit Title:</label>
-            <input required type="text" name="title" id="title" class="title user-box">
+        <label for="title" class="user-box">Visit Title:</label>
+        <input type="text" name="title" id="title" class="title user-box" placeholder="Visit Title:">
+        
+        <label for="description" class="user-box">Short Description:</label>
+        <input type="text" name="description" id="description" class="description user-box" placeholder="Short Description:">
+        
+        <label for="name" class="user-box">Full Name:</label>
+        <input type="text" name="name" id="name" class="name user-box" placeholder="Full Name:">
+        
+        <label for="date" class="user-box">Last Visit Date:</label>
+        <input type="date" name="date" id="date" class="date user-box" placeholder="Last Visit Date:">
+        
+        <label for="pressure" class="user-box">Normal Blood Pressure:</label>
+        <input type="text" name="pressure" id="pressure" class="pressure user-box" placeholder="Normal Blood Pressure:">
+        
+        <label for="index" class="user-box">Body Mass Index:</label>
+        <input type="number" name="index" id="index" class="index user-box" placeholder="Body Mass Index:">
+        
+        <label for="disease" class="user-box">Previous Diseases:</label>
+        <input type="text" name="disease" id="disease" class="disease user-box" placeholder="Previous Diseases:">
+        
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" class="age user-box" placeholder="Age:">
             
-            <label for="description">Short Description:</label>
-            <input required type="text" name="description" id="description" class="description user-box">
-            
-            <label for="name">Full Name:</label>
-            <input required type="text" name="name" id="name" class="name user-box" >
-            
-            <label for="date">Last Visit Date:</label>
-            <input required type="date" name="date" id="date" class="date user-box" >
-            
-            <label for="pressure">Normal Blood Pressure:</label>
-            <input required type="text" name="pressure" id="pressure" class="pressure user-box" >
-            
-            <label for="index">Body Mass Index:</label>
-            <input required type="number" name="index" id="index" class="index user-box" >
-            
-            <label for="disease">Previous Diseases:</label>
-            <input required type="text" name="disease" id="disease" class="disease user-box" >
-            
-            <label for="age">Age:</label>
-            <input required type="number" name="age" id="age" class="age user-box" >
-            
-            <input required type="number" name="id" class="id user-box" style="display: none">
+        <div required type="number" name="id" class="id user-box" style="display: none">
         
         </div>
         <div class="create-form-btn-container">
@@ -80,6 +80,7 @@ export class Modal {
       .querySelector(".create-box")
       .insertAdjacentHTML("beforeend", formm);
   }
+
   //Отрисовать заголовок формы создания карточки
   formHeaderCreate() {
     let container = document.createElement("div");
@@ -100,9 +101,9 @@ export class Modal {
     let content = ` <form action="#" class="form-box">
         <div class="create-form-select-container">
             <select name="doctor" class="doctor user-box" required="required">
-                <option value="Dentist">Стоматолог</option>
-                <option value="Cardiologist">Кардіолог</option>
-                <option value="Therapist">Терапевт</option>
+                <option value="Dentist">Dentist</option>
+                <option value="Cardiologist">Cardiologist</option>
+                <option value="Therapist">Therapist</option>
             </select>
             <select name="urgency" class="urgency user-box" required="required">
                 <option value="hight">High</option>
@@ -116,28 +117,28 @@ export class Modal {
         </div>
         <div class="create-form-input-container">
         <label for="title" class="user-box">Visit Title:</label>
-        <input type="text" name="title" id="title" class="title user-box">
+        <input type="text" name="title" id="title" class="title user-box" placeholder="Visit Title:">
         
         <label for="description" class="user-box">Short Description:</label>
-        <input type="text" name="description" id="description" class="description user-box">
+        <input type="text" name="description" id="description" class="description user-box" placeholder="Short Description:">
         
         <label for="name" class="user-box">Full Name:</label>
-        <input type="text" name="name" id="name" class="name user-box" >
+        <input type="text" name="name" id="name" class="name user-box" placeholder="Full Name:">
         
         <label for="date" class="user-box">Last Visit Date:</label>
-        <input type="date" name="date" id="date" class="date user-box" >
+        <input type="date" name="date" id="date" class="date user-box" placeholder="Last Visit Date:">
         
         <label for="pressure" class="user-box">Normal Blood Pressure:</label>
-        <input type="text" name="pressure" id="pressure" class="pressure user-box" >
+        <input type="text" name="pressure" id="pressure" class="pressure user-box" placeholder="Normal Blood Pressure:">
         
         <label for="index" class="user-box">Body Mass Index:</label>
-        <input type="number" name="index" id="index" class="index user-box" >
+        <input type="number" name="index" id="index" class="index user-box" placeholder="Body Mass Index:">
         
         <label for="disease" class="user-box">Previous Diseases:</label>
-        <input type="text" name="disease" id="disease" class="disease user-box" >
+        <input type="text" name="disease" id="disease" class="disease user-box" placeholder="Previous Diseases:">
         
         <label for="age">Age:</label>
-        <input type="number" name="age" id="age" class="age user-box" >
+        <input type="number" name="age" id="age" class="age user-box" placeholder="Age:">
 
         </div>
         <div class="create-form-btn-container">
