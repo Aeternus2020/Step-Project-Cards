@@ -1,7 +1,7 @@
 import { pulseButton, hide, login } from "../login/login.js";
 import { Modal } from "./modalCards.js";
 import { clearInputs } from "../search.js";
-import { formSelect, writeInputToObject, clear, pushChange, select, update } from "../functions.js";
+import { formSelect, writeInputToObject, clear, pushChange, select,closeModal } from "../functions.js";
 
 export function foundBtn() {
     pulseButton.addEventListener('click', () => {
@@ -55,17 +55,12 @@ export function foundBtn() {
           }
         });
         
-  
         document.querySelector('.clear').addEventListener('click', (event) => {
           event.preventDefault();
           clear(form);
         });
   
-        document.querySelector('.form-btn-cancel').addEventListener('click', () => {
-          clear(form);
-          createBox.remove();
-          login();
-        });
+        document.querySelector('.form-btn-cancel').addEventListener('click', () => closeModal(form, createBox));
       }
     });
   }

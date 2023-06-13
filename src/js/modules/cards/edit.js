@@ -1,7 +1,7 @@
 import { logout, login, hide} from "../login/login.js";
 import { Modal } from "./modalCards.js";
 import { clearInputs } from "../search.js";
-import { get, writeInputToObject, clear, pushEdit, formSelect} from "../functions.js";
+import { get, writeInputToObject, clear, pushEdit, formSelect, closeModal} from "../functions.js";
 
 export function edit() {
     let editBtn = document.querySelectorAll('.btn-edit');
@@ -47,41 +47,28 @@ export function edit() {
                     } else {
                         let outputObj = {};
                         writeInputToObject(outputObj);
-                        console.log(outputObj.id)
                         pushEdit(outputObj, outputObj.id);
                         clearInputs();
                         createBox.remove();
                         login();
                     }
                 });
-            // document.getElementById('push').addEventListener('click', (event) => {
-            //     let createFormInputsWrapper = document.querySelector(".create-form-input-container");
-            //     let createFormInputs = Array.from(createFormInputsWrapper.querySelectorAll("input"));
-
-            //     if (createFormInputs.some(input => input.localName === 'input' && input.style.display !== 'none' && input.value === "")) {
-            //         console.log(createFormInputs);
-            //         alert("Заполните все поля формы.");
-            //         event.preventDefault();
-            //     } else {
-            //         let outputObj = {};
-            //         writeInputToObject(outputObj);
-            //         pushEdit(outputObj, outputObj.id);
-            //         clearInputs();
-            //         createBox.remove();
-            //         login();
-            //     }
-            // });
 
             document.querySelector('.clear').addEventListener('click', (event) => {
                 event.preventDefault();
                 clear(form);
             });
 
-            document.querySelector('.form-btn-cancel').addEventListener('click', () => {
-                clear(form);
-                createBox.remove();
-                login();
-            });
+            document.querySelector('.form-btn-cancel').addEventListener('click', () => closeModal(form, createBox));
+            if (document.querySelector(".create-box")) {
+                console.log("click2");
+                document.querySelector(".create-box").addEventListener("click", (e) => {
+                    if (!document.querySelector(".create-box").contains(e.target)) {
+                        console.log("click");
+                        document.querySelector(".create-box").remove();
+                    }
+                });
+            }
         });
     });
 }

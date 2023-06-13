@@ -1,6 +1,7 @@
 import { checkToken } from "./renderCards.js";
 import { token } from "./fetchGet.js";
 import { fetchData } from "./fetchGet.js";
+import { login } from "./login/login.js";
 
 export async function update() {
     await fetchData();
@@ -60,6 +61,21 @@ export function clear(form) {
     selects[2].value = "open";
 }
 
+//Функция закрытие модального окна
+export function closeModal(form, box) {
+    clear(form);
+    box.remove();
+    login();
+}
+
+//Функция закрытие модального окна вне окна
+export function outside(event) {
+    if (event.target !== createBox) {
+        console.log("click");
+        createBox.remove();
+    }
+}
+
 //Функция отправки изменений
 export async function pushEdit(formObj, id) { 
     fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
@@ -90,6 +106,7 @@ export async function pushChange(formObj) {
         .catch(() => console.log('Error',Error));
 }
 
+ //Функция переключения врача
 export function formSelect(form) {
     let doctor = form.querySelector('.doctor');
     doctor.addEventListener("change", () => {

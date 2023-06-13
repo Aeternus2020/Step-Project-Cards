@@ -86,9 +86,9 @@ export async function filterSearch() {
   document.querySelector(".cards-holder").innerHTML = "";//div для карточек
   cards.innerHTML = ""; // div для no results
   let count = 0;
-  const rgxSearch = new RegExp(searchValue.replace(/[,.\s]+/g, "\\W*"), "i");
-  
+  let rgxSearch = new RegExp(searchValue.replace(/[,.\s]+/g, "\\W*"), "i");
   let rgxUrgency = new RegExp(inpUrgency.value, "i");
+
   if (inpUrgency.value === "All") {
     rgxUrgency = RegExp("", "i");
   }
@@ -98,11 +98,15 @@ export async function filterSearch() {
     }
 
     cardsData.forEach((card) => {
-      if (
-        (rgxSearch.test(card.title) || rgxSearch.test(card.description)) &&
-        rgxUrgency.test(card.urgency) &&
-        rgxStatus.test(card.status)
-      ) {
+      if ((rgxSearch.test(card.title)
+          || rgxSearch.test(card.description)
+          || rgxSearch.test(card.age)
+          || rgxSearch.test(card.disease)
+          || rgxSearch.test(card.doctor)
+          || rgxSearch.test(card.name)
+          || rgxSearch.test(card.pressure))
+          && rgxUrgency.test(card.urgency) 
+          && rgxStatus.test(card.status)) {
         filterData.push(card);
         count++;
       }

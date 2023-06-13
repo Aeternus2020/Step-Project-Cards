@@ -76,8 +76,8 @@ export function render(arrCardData) {
 
 export function checkToken() {
     const token = localStorage.getItem("token");
-    if (token) {
-        render(JSON.parse(localStorage.getItem("cardsData")));
+    token ? render(JSON.parse(localStorage.getItem("cardsData"))) : null ;
     }
-    }
+
+    
 checkToken();
