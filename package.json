@@ -40,10 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/DoroshenkoDan/step-prj-cards-tda.git"
+    "url": "git+https://github.com/Aeternus2020/Step-Project-Cards"
   },
-  "bugs": {
-    "url": "https://gitlab.com/DoroshenkoDan/step-prj-cards-tda/issues"
-  },
-  "homepage": "https://gitlab.com/DoroshenkoDan/step-prj-cards-tda#readme"
+  "homepage": "https://github.com/Aeternus2020/Step-Project-Cards#readme"
 }

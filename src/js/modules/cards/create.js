@@ -1,7 +1,7 @@
 import { pulseButton, hide, login } from "../login/login.js";
 import { Modal } from "./modalCards.js";
 import { clearInputs } from "../search.js";
-import { formSelect, writeInputToObject, clear, pushChange, select,closeModal } from "../functions.js";
+import { formSelect, writeInputToObject, clear, pushChange, select, closeModal } from "../functions.js";
 
 export function foundBtn() {
     pulseButton.addEventListener('click', () => {
@@ -18,6 +18,16 @@ export function foundBtn() {
         formSelect(form);
         select("Dentist", form)
         const createBox = document.querySelector('.create-form-background');
+                    
+          const clickHandler = (e) => {
+            if (!document.querySelector(".create-box").contains(e.target) && !pulseButton.contains(e.target)) {
+            document.removeEventListener("click", clickHandler);
+            closeModal(form, createBox);
+            }
+        };
+    
+        document.addEventListener("click", clickHandler);
+
         document.querySelector('.add').addEventListener('click', (event) => {
           let createFormInputsWrapper = document.querySelector(".create-form-input-container");
           let createFormInputs = Array.from(createFormInputsWrapper.querySelectorAll("input"));
@@ -52,6 +62,7 @@ export function foundBtn() {
             clearInputs();
             createBox.remove();
             login();
+            document.removeEventListener("click", clickHandler);
           }
         });
         
@@ -60,7 +71,7 @@ export function foundBtn() {
           clear(form);
         });
   
-        document.querySelector('.form-btn-cancel').addEventListener('click', () => closeModal(form, createBox));
+        document.querySelector('.form-btn-cancel').addEventListener('click', () => {closeModal(form, createBox); document.removeEventListener("click", clickHandler)});
       }
     });
   }

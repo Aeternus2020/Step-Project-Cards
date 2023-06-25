@@ -1,4 +1,4 @@
-//Отрисовать форму логина или регистрации
+//Draw a login or registration form
 export class modalLogin {
   constructor() {}
 

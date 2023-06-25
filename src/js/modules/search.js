@@ -24,20 +24,20 @@ export function clearInputs() {
   }) }
 const cards = document.getElementById("cards");
 
-// Зв'язані дропдауни 
+//Linked dropdowns 
 document.querySelectorAll(".dropdown").forEach(function (dropdownWrapper) {
     const dpopList = dropdownWrapper.querySelector(".list");
     const dropItems = dpopList.querySelectorAll(".dpopdown-item");
     const dropInput = dropdownWrapper.querySelector(".select-inp");
     dropInput.addEventListener("click", showList);
 
-    // клик по кнопке
+    //Click on the button
     function showList() {
         dpopList.classList.add("list-visible");
         this.classList.toggle("select-inp:active");
     }
 
-    // вибір елементу списку
+    //Selecting a list item
     dropItems.forEach((item) => {
         item.addEventListener("click", function (e) {
             e.stopPropagation();
@@ -49,18 +49,16 @@ document.querySelectorAll(".dropdown").forEach(function (dropdownWrapper) {
         });
     });
 
-    // клік ззовні дропдауна
+    //Click outside the dropdown
     document.addEventListener("click", function (e) {
         if (e.target !== dropInput) {
-
             dpopList.classList.remove("list-visible");
         }
     });
 
-    // закриття списку табом чи ескейпом
+    //Closing the list with tab or escape
     document.addEventListener("keydown", function (e) {
         if (e.key === "Tab" || e.key === "Escape") {
-
             dpopList.classList.remove("list-visible");
         }
     });
@@ -78,13 +76,13 @@ searchInp.oninput = (event) => {
     filterSearch();
 };
 
-// пошук  по дропдаунах та текстовому полю
+//Search by dropdowns and text field
 export async function filterSearch() {
   let cardsData = JSON.parse(localStorage.getItem("cardsData"));
 
   let filterData = [];
-  document.querySelector(".cards-holder").innerHTML = "";//div для карточек
-  cards.innerHTML = ""; // div для no results
+  document.querySelector(".cards-holder").innerHTML = "";
+  cards.innerHTML = "";
   let count = 0;
   let rgxSearch = new RegExp(searchValue.replace(/[,.\s]+/g, "\\W*"), "i");
   let rgxUrgency = new RegExp(inpUrgency.value, "i");

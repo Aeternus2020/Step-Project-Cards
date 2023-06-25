@@ -1,7 +1,7 @@
-import { logout, login, hide} from "../login/login.js";
+import { login, hide} from "../login/login.js";
 import { Modal } from "./modalCards.js";
 import { clearInputs } from "../search.js";
-import { get, writeInputToObject, clear, pushEdit, formSelect, closeModal} from "../functions.js";
+import { get, writeInputToObject, clear, pushEdit, formSelect, closeModal } from "../functions.js";
 
 export function edit() {
     let editBtn = document.querySelectorAll('.btn-edit');
@@ -17,6 +17,16 @@ export function edit() {
             let form = document.querySelector(".form-box");
             formSelect(form);
             let createBox = document.querySelector('.create-form-background');
+                
+                const clickHandler = (e) => {
+                    if (!document.querySelector(".create-box").contains(e.target) && !elem.contains(e.target)) {
+                    document.removeEventListener("click", clickHandler);
+                    closeModal(form, createBox);
+                    }
+                };
+            
+                document.addEventListener("click", clickHandler);
+                
                 document.getElementById('push').addEventListener('click', (event) => {
                     let createFormInputsWrapper = document.querySelector(".create-form-input-container");
                     let createFormInputs = Array.from(createFormInputsWrapper.querySelectorAll("input"));
@@ -51,6 +61,7 @@ export function edit() {
                         clearInputs();
                         createBox.remove();
                         login();
+                        document.removeEventListener("click", clickHandler);
                     }
                 });
 
@@ -59,16 +70,8 @@ export function edit() {
                 clear(form);
             });
 
-            document.querySelector('.form-btn-cancel').addEventListener('click', () => closeModal(form, createBox));
-            if (document.querySelector(".create-box")) {
-                console.log("click2");
-                document.querySelector(".create-box").addEventListener("click", (e) => {
-                    if (!document.querySelector(".create-box").contains(e.target)) {
-                        console.log("click");
-                        document.querySelector(".create-box").remove();
-                    }
-                });
-            }
+            document.querySelector('.form-btn-cancel').addEventListener('click', () => {closeModal(form, createBox); document.removeEventListener("click", clickHandler)});
         });
     });
 }
+

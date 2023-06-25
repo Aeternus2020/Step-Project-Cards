@@ -141,10 +141,17 @@
 .list-visible {
   display: block;
 }
+
 .search-result {
   font-size: 30px;
   color: #0d7377;
   display: flex;
   justify-content: center;
   margin-top: 50px;
+}
+
+@media (max-width: 600px) {
+  .dropdown {
+    display: none;
+  }
 }

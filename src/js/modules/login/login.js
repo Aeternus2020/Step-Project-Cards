@@ -7,8 +7,10 @@ import { modalLogin } from "./loginForm.js";
 import { logVal} from "./checkLogin.js";
 import { foundBtn } from "../cards/create.js";
 import { btnRegistration } from "./registration.js";
+let clickHandler;
 
 btnLogin.addEventListener('click', () => {
+
   if (btnLogin.innerHTML === 'Logout') {
       localStorage.removeItem("token");
       localStorage.removeItem("cardsData");
@@ -22,12 +24,17 @@ btnLogin.addEventListener('click', () => {
       background.loginForm();
       hide();
       logVal();
+      document.removeEventListener("click", clickHandler);
       document.querySelector('.login-form-btn-cancel')?.addEventListener('click', () => show())
   }
+    clickHandler = (e) => {
+    !document.querySelector(".login-box")?.contains(e.target) && !btnLogin.contains(e.target) ? show() : null;
+    };
+    document.addEventListener("click", clickHandler);
   }
 });
 
-//Функция скрытия блоков при открытии модального окна
+//Function to hide blocks when opening a modal window
 export function hide() {
   cardsHolder.style.display = 'none';
   pulseButton.style.display = 'none';
@@ -35,13 +42,18 @@ export function hide() {
   filterContainer.style.display = 'none';
 }
 
-//Функция открытия блоков при закрытии модального окна
+//The function of opening blocks when closing a modal window
 export function show() {
-    document.querySelector('.login-box').remove();
-    check();
+  const loginBox = document.querySelector('.login-box');
+  if (loginBox) {
+    document.removeEventListener("click", clickHandler);
+    loginBox.remove();
+  }
+  check();
 }
 
-//Функция скрытия контента при входе в аккаунт
+
+//The function of hiding content when logging into your account
 export function login() {
   btnLogin.innerHTML = 'Logout';
   btnRegistration.style.display = 'none';
@@ -51,7 +63,7 @@ export function login() {
   filterContainer.style.display = 'flex';
 }
 
-//Функция открытия контента при выходе из аккаунта
+//The function of opening content when logging out of the account
 export function logout() {
   cardsHolder.style.display = 'none';
   vacuum.style.display = 'block';
@@ -59,7 +71,7 @@ export function logout() {
   filterContainer.style.display = 'none';
 }  
 
-//Функция проверки на логинизацию по кнопке
+//The function of checking for login by button
 export function check() {
   if (btnLogin.innerHTML === 'Login') {
     vacuum.style.display = 'block';

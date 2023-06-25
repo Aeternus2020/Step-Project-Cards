@@ -12,10 +12,10 @@ export class visitCardiologist extends Visit {
     addCardiologistCard() {
         const card = super.printCard();
         const variables = [
-            { name: 'Вік', value: this.age },
-            { name: 'ІндексМассиТіла', value: this.index },
-            { name: 'Захворювання', value: this.disease },
-            { name: 'Тиск', value: this.pressure }
+            { name: 'Age', value: this.age },
+            { name: 'BMIndex', value: this.index },
+            { name: 'Disease', value: this.disease },
+            { name: 'Pressure', value: this.pressure }
         ];
         variables.forEach(variable => {
             const element = document.createElement('p');

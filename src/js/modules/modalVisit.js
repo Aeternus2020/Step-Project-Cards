@@ -14,12 +14,12 @@ export class Visit  {
         container.setAttribute('id', this.id);
         let textPart = ` 
         <div class="card-container-p">
-        <p>${this.name}</p>
-        <p>${this.doctor}</p>
-        <button class="card-container-btn-cancel"><img src="./img/cancel (1).svg" alt=""></button>
+            <p>${this.name}</p>
+            <p>${this.doctor}</p>
+            <button class="card-container-btn-cancel"><img src="./img/cancel (1).svg" alt=""></button>
         <p class="hidden"><img src="./img/Star 1.svg" alt="">${this.urgency}</p>
-        <p class="hidden"><img src="./img/Star 1.svg" alt="">Мета візиту:${this.title}</p>
-        <p class="hidden"><img src="./img/Star 1.svg" alt="">Опис візиту:${this.description}</p> 
+        <p class="hidden"><img src="./img/Star 1.svg" alt=""> The purpose of the visit: ${this.title}</p>
+        <p class="hidden"><img src="./img/Star 1.svg" alt=""> Description of the visit: ${this.description}</p> 
         </div>
         `
         let btnsPart = `<div class="btns-card-container">

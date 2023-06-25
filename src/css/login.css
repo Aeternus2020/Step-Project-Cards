@@ -2,7 +2,9 @@
     position: absolute;
     top: 60%;
     left: 50%;
-    width: 400px;
+    min-width: 250px;
+    width: 40%;
+    max-width: 430px;
     padding: 40px;
     transform: translate(-50%, -50%);
     background: rgba(50, 50, 50, 0.5);
@@ -190,6 +192,35 @@
     position: absolute;
     color: #0D7377;
     font-size: 2rem;
-    left: 35%;
+    left: 25%;
     top: 30%;
+}
+
+
+.login,
+.registration {
+    border: 2px solid #0D7377;
+    background: linear-gradient(270.09deg, #0D7377 0.06%, #446158 101.02%);
+    width: 140px;
+    cursor: pointer;
+    border-radius: 50px;
+    padding: 13px 0px 13px 0px;
+    color: #B6EADA;
+    font-size: 18px;
+    text-align: center;
+    display: block;
+    text-shadow: #0D7377 1px 0 10px;
+
+    -webkit-transition-timing-function: ease-in-out;
+    -webkit-transition-duration: .4s;
+    -webkit-transition-property: all;
+
+    -moz-transition-timing-function: ease-in-out;
+    -moz-transition-duration: .4s;
+    -moz-transition-property: all;
+}
+
+.login:hover,
+.registration:hover {
+    text-indent: 20px;
 }

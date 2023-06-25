@@ -7,7 +7,7 @@ let errorEmail = "Email";
 let mail;
 let password;
 
-// повторне отримання токену після реєстрації
+//Re-getting the token after registration
 async function getToken(username, password) {
   const data = await fetch("https://ajax.test-danit.com/api/v2/cards/login", {
     method: "POST",
@@ -34,6 +34,14 @@ async function getToken(username, password) {
   }
 }
 
+// email
+// : 
+// "123456789@mail.ru"
+// password
+// : 
+// "123456789"
+
+//New user registration function
 async function registration(username, password) {
   const data = await fetch("https://ajax.test-danit.com/api/cards/register", {
     method: "POST",
@@ -44,14 +52,35 @@ async function registration(username, password) {
       email: username,
       password: password,
     }),
-  })
-    .catch(err => console.error(err));
-    const res = await data.text();
+  }).catch(err => console.error(err));
+  
+  const res = await data.text();
+  if (!res.includes(" ")) {
     localStorage.setItem("token", res);
+    let timeLeft = 30;
+    document.querySelector('.form').innerHTML =
+      `Please remember your password ${password} and login ${username}, 
+      we do not have a password recovery function. <br> <span class="timer">${timeLeft}</span> seconds left before the window closes.`;
+
+    const countdown = setInterval(() => {
+      timeLeft--;
+      document.querySelector('.timer').textContent = timeLeft;
+
+      if (timeLeft < 0) {
+        clearInterval(countdown);
+        login();
+        show();
+        update();
+      }
+    }, 1000);
+
+    return true;
+  } else {
+    document.querySelector('.form').innerHTML = res;
+    return false;
+  }
 }
 
-// email: "qqq@qqq.qqq"
-// password: "qqqqqqqq"
 
 function user(email, pass)  {
     const regex = /^\S+@\S+\.\S+$/;
@@ -69,7 +98,7 @@ function user(email, pass)  {
     }
 }
 
-//логін і валідація
+//Login and validation
 export function logVal () {
   document.querySelector('#email').addEventListener("input", checkUserLogIn);
   document.querySelector('#password').addEventListener("input", checkUserLogIn);
@@ -78,6 +107,22 @@ export function logVal () {
       checkSubmit(event);
     }
   });
+}
+
+export function checkSubmit(event) {
+  user(document.getElementById("email").value, document.getElementById("password").value);
+
+  if (errorPasword === "Password" && errorEmail === "Email") {
+    if (event.target.innerText === "SUBMIT") {
+      event.target.id === "subLog" ? getToken(mail, password) : null;
+    }
+    if (event.target.innerText === "SUBMIT") {
+      event.target.id === "subReg" ? registration(mail, password) : null;
+    }
+  } else {
+    document.querySelector('label[for="password"]').innerHTML = errorPasword;
+    document.querySelector('label[for="email"]').innerHTML = errorEmail;
+  }
 }
 
 export async function checkUserLogIn() {
@@ -96,21 +141,4 @@ export async function checkUserLogIn() {
     labelPassword.innerHTML = errorPasword;
   }
   foundBtn();
-}
-
-
-export function checkSubmit(event) {
-  user(document.getElementById("email").value, document.getElementById("password").value);
-
-  if (errorPasword === "Password" && errorEmail === "Email") {
-    if (event.target.innerText === "SUBMIT") {
-      event.target.id === "subLog" ? getToken(mail, password) : null;
-    }
-    if (event.target.innerText === "SUBMIT") {
-      event.target.id === "subReg" ? registration(mail, password) : null;
-    }
-  } else {
-    document.querySelector('label[for="password"]').innerHTML = errorPasword;
-    document.querySelector('label[for="email"]').innerHTML = errorEmail;
-  }
 }

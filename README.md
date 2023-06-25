@@ -1,45 +1,57 @@
 # Cards Step Project
 
-## Список використаних технологій
 
-Проект зібраний за допомогою Gulp
+Created by: [Olena Hodyna](https://github.com/Aeternus2020), [Daniil Doroshenko](https://gitlab.com/DoroshenkoDan) and [Taisiia Zhdanovych](https://gitlab.com/Taisiia_Zhdanovych)
 
+[repository](https://github.com/Aeternus2020/Step-Project-Cards)
+[Pages](https://cards-rosy-alpha-29.vercel.app/)
 
-## Учасники проекту
+## Technologies used:
 
-Olena Hodyna, 
-Daniil Doroshenko, 
-Taisiia Zhdanovych.
+### The page uses:
 
-## Список виконаних завдань
+- HTML
+- CSS
+- JavaScript
+- BEM
+- GRID and Flexbox
+- AJAX (fetch)
+- ES6 modules
 
-Дизайн: Daniil;
+### Project build:
 
-Репозиторій: Daniil;
+- Gulp
 
-Gulp: Daniil;
+### Additional Tools:
+- git
+- node
+- npm
+- github
+- versel page
 
-Login: Olena;
+## Completed tasks:
 
-Main classes and render: Daniil;
+Olena Hodyna:
 
-Login(валідація): Taisiya;
+- login
+- registration
+- validation
+- modal class
+- create cards
+- delete cards
+- edit cards
 
-Create, delete and edit cards: Olena;
+Daniil Doroshenko:
 
-Filter and search: Taisiia;
+- design
+- repository page
+- gulp
+- visit class
+- doctors classes
+- render
 
-gitHub Pages: Taisiia;
+Taisiia Zhdanovych:
 
-## Посилання на проект
+- filter
+- search
 
-https://gitlab.com/DoroshenkoDan/step-prj-cards-tda
-
-https://taisiiazhdanovych.github.io/stepProjectCards-TZ-OH-DD/
-
-## email and password for token
-
-email = taisiya@gmail.com
-pass = cards1234
-
-token is: 612c98f6-2633-4db1-88d6-377be24cc068

@@ -8,7 +8,7 @@ export async function update() {
     checkToken();
 }
 
-//Функция получения карточки по id
+//The function of getting a card by id
 export function get(id) {
     fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
         method: 'GET',
@@ -23,7 +23,7 @@ export function get(id) {
         })
 }
 
-//Функция заполнения формы
+//Form fill function
 export function fillInputsFromObject(obj) {
     const form = document.querySelector(".form-box");
     for (const [key, value] of Object.entries(obj)) {
@@ -37,7 +37,7 @@ export function fillInputsFromObject(obj) {
     }
 }
 
- //Функция сбора информации из инпутов
+ //The function of collecting information from inputs
     export function writeInputToObject(outputObj) {
     const inputElements = document.querySelector('.form-box').querySelectorAll('.user-box');
     inputElements.forEach(input => {
@@ -49,7 +49,7 @@ export function fillInputsFromObject(obj) {
     });
     }
 
-//Функция очистки  формы
+//Form cleanup function
 export function clear(form) {
     const inputs = form.querySelectorAll('input');
     inputs.forEach(input => {
@@ -61,22 +61,14 @@ export function clear(form) {
     selects[2].value = "open";
 }
 
-//Функция закрытие модального окна
+//Closing modal function
 export function closeModal(form, box) {
     clear(form);
     box.remove();
     login();
 }
 
-//Функция закрытие модального окна вне окна
-export function outside(event) {
-    if (event.target !== createBox) {
-        console.log("click");
-        createBox.remove();
-    }
-}
-
-//Функция отправки изменений
+//Submit Changes Function
 export async function pushEdit(formObj, id) { 
     fetch(`https://ajax.test-danit.com/api/v2/cards/${id}`, {
         method: "PUT",
@@ -91,7 +83,7 @@ export async function pushEdit(formObj, id) {
         .catch(() => console.log('Error',Error));
 }
 
-//Функция отправки новой карточки
+//Function of sending a new card
 export async function pushChange(formObj) {
     fetch(`https://ajax.test-danit.com/api/v2/cards`, {
         method: 'POST',
@@ -106,7 +98,7 @@ export async function pushChange(formObj) {
         .catch(() => console.log('Error',Error));
 }
 
- //Функция переключения врача
+ //Doctor switching function
 export function formSelect(form) {
     let doctor = form.querySelector('.doctor');
     doctor.addEventListener("change", () => {

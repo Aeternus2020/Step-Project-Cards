@@ -10,7 +10,7 @@ export class visitTherapist extends Visit {
         let card = super.printCard()
         let age = document.createElement('p');
         const imgSrc = './img/Star 1.svg';
-        age.innerHTML = `<img src="${imgSrc}" alt=""> Вік: ${this.age}`;
+        age.innerHTML = `<img src="${imgSrc}" alt=""> Age: ${this.age}`;
         age.classList.add("age", "hidden")
         card.children[0].append(age)
     }

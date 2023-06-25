@@ -79,5 +79,4 @@ export function checkToken() {
     token ? render(JSON.parse(localStorage.getItem("cardsData"))) : null ;
     }
 
-    
 checkToken();
